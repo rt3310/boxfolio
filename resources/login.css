@@ -132,6 +132,7 @@ header {
     color: #fff;
     height: 100px;
     line-height: 100px;
+    min-width: 1200px;
     text-align: center;
 }
 
@@ -146,9 +147,9 @@ header {
     justify-content: center;
 }
 
-.login-container form {
+.login-area {
     border: solid 1px #ddd;
-    height: 420px;
+    height: 240px;
     padding: 30px;
     width: 360px;
 }
