@@ -27,8 +27,12 @@ a {
     text-decoration: none;
 }
 
-button:hover {
+button {
     cursor: pointer;
+}
+
+li {
+    list-style: none;
 }
 
 .wrap {
