@@ -149,26 +149,63 @@ header {
 
 .login-area {
     border: solid 1px #ddd;
-    height: 240px;
+    height: 420px;
     padding: 30px;
     width: 360px;
 }
 
-.login-form {
-    align-items: center;
+.login-area form {
     display: flex;
     flex-direction: column;
-    padding: 0 10px;
 }
 
-.login-form li {
-    padding: 15px 0;
+.id-area {
+    border: solid 1px #DDDDDD;
+    margin: 15px 0;
+    padding: 10px 0;
 }
 
-.login-form li input {
-    width: 280px;
-    height: 30px;
+.id-icon {
+    margin-left: 5px;
 }
+
+.id-area input {
+    border: none;
+    font-size: 14px;
+    height: 40px;
+    margin: 0 10px;
+    width: 85%;
+}
+
+.pw-area {
+    border: solid 1px #DDDDDD;
+    margin: 15px 0;
+    padding: 10px 0;
+}
+
+.pw-icon {
+    margin-left: 5px;
+}
+
+.pw-area input {
+    border: none;
+    font-size: 14px;
+    height: 40px;
+    margin: 0 10px;
+    width: 85%;
+}
+
+.login-btn-area {
+    margin: 20px 0;
+    height: 300px;
+}
+
+.login-btn {
+    height: 100%;
+    width: 100%;
+}
+
+
 
 /* footer */
 footer {

@@ -72,11 +72,21 @@
             <div class="login-container">
                 <div class="login-area">
                     <form action="#" method="post">
-                        <ul class="login-form">
-                            <li><input type="text" name="id" autofocus required placeholder="아이디"></li>
-                            <li><input type="password" name="passwd" required placeholder="비밀번호"></li>
-                        </ul>
-                        <input type="submit" name="submit" value="로그인">
+                        <div class="id-area">
+                            <i class="fas fa-user id-icon"></i>
+                            <input type="text" name="id" autofocus required placeholder="아이디">
+                        </div>
+                        <div class="pw-area">
+                            <i class="fas fa-key pw-icon"></i>
+                            <input type="password" name="passwd" required placeholder="비밀번호">
+                        </div>
+                        <div class="keep-login-area">
+                            <input type="checkbox" name="keep-login" value="로그인 상태 유지">
+                            <span>로그인 상태 유지</span>
+                        </div>
+                        <div class="login-btn-area">
+                            <input class="login-btn" type="submit" name="submit" value="로그인">
+                        </div>
                     </form>
                 </div>
             </div>
