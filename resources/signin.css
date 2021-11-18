@@ -1,0 +1,164 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    font-family: "맑은 고딕", "고딕";
+    height: 100%;
+    margin: 0 auto;
+    font-size: 14px;
+}
+
+p {
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+a {
+    all: unset;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.wrap {
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 2rem;
+    width: 1200px;
+}
+
+/* header */
+header {
+    background-color: #fff;
+    height: 80px;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+}
+
+.head-container {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: space-between;
+}
+
+.logo a {
+    color: #f93;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0 10px;
+}
+
+.navi {
+    display: flex;
+}
+
+.navi ul {
+    margin: 0 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.navi ul:hover {
+    background-color: #eee;
+}
+
+.navi ul a {
+    font-size: 16px;
+}
+
+.menu {
+    align-items: center;
+    display: flex;
+}
+
+.search {
+    margin: 0 10px;
+}
+
+#search-form {
+    display: flex;
+}
+
+#query {
+    border: 1;
+    height: 20px;
+    margin: 0;
+    padding: 0;
+    width: 150px;
+}
+
+#search-btn {
+    background-image: url("/resources/search.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: 0;
+    height: 20px;
+    margin: 0 10px;
+    outline: 0;
+    width: 20px;
+}
+
+.menu a {
+    float: left;
+    font-size: 12px;
+}
+
+.menu-div-bar {
+    background-color: #e4e8eb;
+    float: left;
+    height: 10px;
+    margin: 3px 7px;
+    width: 1px;
+}
+
+/* signin-title */
+.signin-title {
+    background-color: #f93;
+    color: #fff;
+    height: 100px;
+    line-height: 100px;
+    min-width: 1200px;
+    text-align: center;
+}
+
+.signin-title h1 {
+    font-size: 32px;
+}
+
+/* footer */
+footer {
+    background-color: #333;
+    height: 100px;
+    min-width: 1200px;
+}
+
+.intro-container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.intro ul {
+    color: #ddd;
+}
+
+.intro ul li a:hover {
+    text-decoration: underline;
+}
