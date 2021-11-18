@@ -42,6 +42,7 @@ button:hover {
     width: 1200px;
 }
 
+/* header */
 header {
     background-color: #fff;
     height: 80px;
@@ -127,6 +128,7 @@ header {
     width: 1px;
 }
 
+/* login-title */
 .login-title {
     background-color: #f93;
     color: #fff;
