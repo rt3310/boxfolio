@@ -235,6 +235,7 @@ section {
 footer {
     background-color: #333333;
     height: 100px;
+    min-width: 1200px;
 }
 
 .intro-container {
