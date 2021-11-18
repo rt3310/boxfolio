@@ -142,6 +142,110 @@ header {
     font-size: 32px;
 }
 
+/* signin-area */
+.signin-container {
+    align-items: center;
+    display: flex;
+    min-height: calc(100vh - 280px);
+    justify-content: center;
+}
+
+.signin-area {
+    border: solid 1px #ddd;
+    height: 620px;
+    padding: 30px;
+    margin: 50px 0;
+    width: 360px;
+}
+
+.signin-area form {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-id {
+    border: solid 1px #ddd;
+    font-size: 14px;
+    height: 40px;
+    margin: 15px 0 10px 0;
+    padding: 10px;
+    width: 100%;
+}
+
+.input-pw {
+    border: solid 1px #ddd;
+    font-size: 14px;
+    height: 40px;
+    margin: 10px 0;
+    padding: 10px;
+    width: 100%;
+}
+
+.input-pwcheck {
+    border: solid 1px #ddd;
+    font-size: 14px;
+    height: 40px;
+    margin: 10px 0;
+    padding: 10px;
+    width: 100%;
+}
+
+.input-name {
+    border: solid 1px #ddd;
+    font-size: 14px;
+    height: 40px;
+    margin: 10px 0;
+    padding: 10px;
+    width: 100%;
+}
+
+.input-birth {
+    display: flex;
+    justify-content: space-between;
+}
+
+.input-birth input {
+    border: solid 1px #ddd;
+    font-size: 14px;
+    height: 40px;
+    margin: 10px 0;
+    padding: 10px;
+    width: 30%;
+}
+
+.input-email-id {
+    border: solid 1px #ddd;
+    font-size: 14px;
+    height: 40px;
+    margin: 10px 0;
+    padding: 10px;
+    width: 40%;
+}
+
+#address {
+    border: solid 1px #ddd;
+    font-size: 14px;
+    height: 40px;
+    margin: 10px 0;
+    padding: 10px;
+    width: 52%;
+}
+
+.signin-btn {
+    background-color: #fa5;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    height: 72px;
+    margin: 20px 0 0;
+    width: 100%;
+}
+
+.signin-btn:hover {
+    background-color: #fb7;
+    cursor: pointer;
+}
+
 /* footer */
 footer {
     background-color: #333;
