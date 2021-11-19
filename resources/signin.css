@@ -68,18 +68,14 @@ header {
     display: flex;
 }
 
-.navi li {
+.navi a {
+    font-size: 16px;
     margin: 0 5px;
     padding: 10px 20px;
-    cursor: pointer;
 }
 
-.navi li:hover {
+.navi a:hover {
     background-color: #eee;
-}
-
-.navi li a {
-    font-size: 16px;
 }
 
 .menu {
