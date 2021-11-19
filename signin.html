@@ -72,50 +72,48 @@
     <section>
         <div class="wrap">
             <div class="signin-container">
-                <div class="signin-area">
-                    <form action="#" method="post">
-                        <div class="id-area">
-                            <label for="input-id">아이디</label>
-                            <input class="input-id" type="text" name="id" autofocus required/>
+                <form class="signin-form" action="#" method="post">
+                    <div class="id-area">
+                        <label for="input-id">아이디</label>
+                        <input class="input-id" type="text" name="id" autofocus required/>
+                    </div>
+                    <div class="pw-area">
+                        <label for="input-pw">비밀번호</label>
+                        <input class="input-pw" type="password" name="passwd" required/>
+                    </div>
+                    <div class="pwcheck-area">
+                        <label for="input-pwcheck">비밀번호 확인</label>
+                        <input class="input-pwcheck" type="password" name="passwdcheck" required/>
+                    </div>
+                    <div class="name-area">
+                        <label for="input-name">이름</label>
+                        <input class="input-name" type="text" name="name" required/>
+                    </div>
+                    <div class="birth-area">
+                        <label for="input-birth">생년월일</label>
+                        <div class="input-birth">
+                            <input class="input-year" type="text" name="year" required placeholder="년"/>
+                            <input class="input-month" type="text" name="month" required placeholder="월"/>
+                            <input class="input-day" type="text" name="day" required placeholder="일"/>
                         </div>
-                        <div class="pw-area">
-                            <label for="input-pw">비밀번호</label>
-                            <input class="input-pw" type="password" name="passwd" required/>
+                    </div>
+                    <div class="email-area">
+                        <label for="input-email">이메일</label>
+                        <div class="input-email">
+                            <input class="input-email-id" type="text" name="email" required/>
+                            <span>@</span>
+                            <select name="address" id="address" required>
+                                <option value="directly">직접입력</option>
+                                <option value="naver">naver.com</option>
+                                <option value="google">gmail.com</option>
+                                <option value="kakao">kakao.com</option>
+                            </select>
                         </div>
-                        <div class="pwcheck-area">
-                            <label for="input-pwcheck">비밀번호 확인</label>
-                            <input class="input-pwcheck" type="password" name="passwdcheck" required/>
-                        </div>
-                        <div class="name-area">
-                            <label for="input-name">이름</label>
-                            <input class="input-name" type="text" name="name" required/>
-                        </div>
-                        <div class="birth-area">
-                            <label for="input-birth">생년월일</label>
-                            <div class="input-birth">
-                                <input class="input-year" type="text" name="year" required placeholder="년"/>
-                                <input class="input-month" type="text" name="month" required placeholder="월"/>
-                                <input class="input-day" type="text" name="day" required placeholder="일"/>
-                            </div>
-                        </div>
-                        <div class="email-area">
-                            <label for="input-email">이메일</label>
-                            <div class="input-email">
-                                <input class="input-email-id" type="text" name="email" required/>
-                                <span>@</span>
-                                <select name="address" id="address" required>
-                                    <option value="directly">직접입력</option>
-                                    <option value="naver">naver.com</option>
-                                    <option value="google">gmail.com</option>
-                                    <option value="kakao">kakao.com</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="signin-btn-area">
-                            <input class="signin-btn" type="submit" name="submit" value="회원가입"/>
-                        </div>
-                    </form>
-                </div>
+                    </div>
+                    <div class="signin-btn-area">
+                        <input class="signin-btn" type="submit" name="submit" value="회원가입"/>
+                    </div>
+                </form>
             </div>
         </div>
     </section>

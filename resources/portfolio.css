@@ -167,7 +167,7 @@ header {
 }
 
 .to-mypofol:hover {
-    color: #f7d;
+    color: #f93;
     cursor: pointer;
     transition: transform 0.5s;
     transform: translateX(2px);
@@ -180,6 +180,8 @@ header {
 .pofol-list {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 0;
 }
 
 .pofol-card {
@@ -211,9 +213,9 @@ footer {
 }
 
 .intro-container {
-    height: 100%;
-    display: flex;
     align-items: center;
+    display: flex;
+    height: 100%;
 }
 
 .intro ul {

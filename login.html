@@ -72,34 +72,32 @@
     <section>
         <div class="wrap">
             <div class="login-container">
-                <div class="login-area">
-                    <form action="#" method="post">
-                        <div class="id-area">
-                            <i class="fas fa-user id-icon"></i>
-                            <input type="text" name="id" autofocus required placeholder="아이디"/>
-                        </div>
-                        <div class="pw-area">
-                            <i class="fas fa-key pw-icon"></i>
-                            <input type="password" name="passwd" required placeholder="비밀번호"/>
-                        </div>
-                        <div class="keep-login-area">
-                            <label for="keep-login" style="cursor: pointer;"><input id="keep-login" type="checkbox" name="keep-login" value="로그인 상태 유지"/>로그인 상태 유지</label>
-                        </div>
-                        <div class="keep-id-area">
-                            <label for="keep-id" style="cursor: pointer;"><input id="keep-id" type="checkbox" name="keep-id" value="아이디 유지"/>아이디 유지</label>
-                        </div>
-                        <div class="login-btn-area">
-                            <input class="login-btn" type="submit" name="submit" value="로그인"/>
-                        </div>
-                        <div class="login-manage-area">
-                            <a href="#" class="seek-id">아이디 찾기</a>
-                            <i class="menu-div-bar"></i>
-                            <a href="#" class="seek-pw">비밀번호 찾기</a>
-                            <i class="menu-div-bar"></i>
-                            <a href="http://127.0.0.1:5500/signin.html" class="signin">회원가입</a>
-                        </div>
-                    </form>
-                </div>
+                <form class="login-form" action="#" method="post">
+                    <div class="id-area">
+                        <i class="fas fa-user id-icon"></i>
+                        <input type="text" name="id" autofocus required placeholder="아이디"/>
+                    </div>
+                    <div class="pw-area">
+                        <i class="fas fa-key pw-icon"></i>
+                        <input type="password" name="passwd" required placeholder="비밀번호"/>
+                    </div>
+                    <div class="keep-login-area">
+                        <label for="keep-login" style="cursor: pointer;"><input id="keep-login" type="checkbox" name="keep-login" value="로그인 상태 유지"/>로그인 상태 유지</label>
+                    </div>
+                    <div class="keep-id-area">
+                        <label for="keep-id" style="cursor: pointer;"><input id="keep-id" type="checkbox" name="keep-id" value="아이디 유지"/>아이디 유지</label>
+                    </div>
+                    <div class="login-btn-area">
+                        <input class="login-btn" type="submit" name="submit" value="로그인"/>
+                    </div>
+                    <div class="login-manage-area">
+                        <a href="#" class="seek-id">아이디 찾기</a>
+                        <i class="menu-div-bar"></i>
+                        <a href="#" class="seek-pw">비밀번호 찾기</a>
+                        <i class="menu-div-bar"></i>
+                        <a href="http://127.0.0.1:5500/signin.html" class="signin">회원가입</a>
+                    </div>
+                </form>
             </div>
         </div>
     </section>

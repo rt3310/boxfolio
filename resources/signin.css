@@ -146,17 +146,14 @@ header {
     justify-content: center;
 }
 
-.signin-area {
+.signin-form {
     border: solid 1px #ddd;
+    display: flex;
+    flex-direction: column;
     height: 620px;
     padding: 30px;
     margin: 50px 0;
-    width: 360px;
-}
-
-.signin-area form {
-    display: flex;
-    flex-direction: column;
+    width: 420px;
 }
 
 .input-id {
