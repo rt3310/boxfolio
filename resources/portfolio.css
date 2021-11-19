@@ -194,7 +194,6 @@ header {
 }
 
 .pofol-card:hover {
-    cursor: pointer;
     transition: transform 0.5s;
     transform: translateY(-2px);
 }
@@ -203,6 +202,50 @@ header {
     margin-top: 20px;
     height: 40%;
     width: 100%;
+}
+
+.pofol-info {
+    padding: 5px 10px;
+}
+
+.pofol-title {
+    color: #333;
+    padding-bottom: 5px;
+}
+
+.pofol-depart {
+    color: #777;
+    padding-bottom: 5px;
+}
+
+.pofol-hope {
+    color: #ffc74f;
+    font-size: 12px;
+    padding-bottom: 10px;
+}
+
+.pofol-intro {
+    font-size: 12px;
+    height: 40px;
+}
+
+.pofol-icons {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.pofol-icons li {
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.pofol-star:hover {
+    color: #fff555;
+}
+
+.pofol-mark:hover {
+    color: #00aeff;
 }
 
 /* footer */
