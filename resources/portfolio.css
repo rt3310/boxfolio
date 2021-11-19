@@ -128,6 +128,54 @@ header {
     width: 1px;
 }
 
+/* acceess */
+.access-container {
+    align-items: flex-end;
+    display: flex;
+    height: 200px;
+    justify-content: space-between;
+    padding: 20px 0;
+}
+
+#pofol-search-form {
+    align-items: center;
+    display: flex;
+}
+
+#pofol-query {
+    background-color: #fed;
+    border: 0.5px solid #f93;
+    border-radius: 8px;
+    height: 35px;
+    font-size: 16px;
+    padding: 5px;
+    width: 300px;
+}
+
+#pofol-search-btn {
+    background-image: url("/resources/search.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: 0;
+    filter: invert(53%) sepia(80%) saturate(1062%) hue-rotate(349deg) brightness(101%) contrast(104%);
+    height: 28px;
+    margin: 0 10px;
+    outline: 0;
+    width: 28px;
+}
+
+.to-mypofol {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.to-mypofol:hover {
+    color: #f7d;
+    cursor: pointer;
+}
+
+
 /* footer */
 footer {
     background-color: #333;
