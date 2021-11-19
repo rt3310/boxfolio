@@ -72,17 +72,17 @@ header {
     display: flex;
 }
 
-.navi ul {
+.navi li {
     margin: 0 5px;
     padding: 10px 20px;
     cursor: pointer;
 }
 
-.navi ul:hover {
-    background-color: #EEEEEE;
+.navi li:hover {
+    background-color: #eee;
 }
 
-.navi ul a {
+.navi li a {
     font-size: 16px;
 }
 
@@ -161,18 +161,18 @@ header {
     width: 100%;
 }
 
-.contents ul {
+.contents li {
     margin: 0;
     padding: 10px 30px;
 }
 
-.contents ul a {
+.contents li a {
     align-items: center;
     display: flex;
     flex-direction: column;
 }
 
-.contents ul a:hover {
+.contents li a:hover {
     filter: invert(76%) sepia(35%) saturate(816%) hue-rotate(330deg) brightness(100%) contrast(102%);
     /* animation: blur 0.5s; */
     /* animation-fill-mode: both; */

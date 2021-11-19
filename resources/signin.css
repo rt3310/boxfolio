@@ -68,17 +68,17 @@ header {
     display: flex;
 }
 
-.navi ul {
+.navi li {
     margin: 0 5px;
     padding: 10px 20px;
     cursor: pointer;
 }
 
-.navi ul:hover {
+.navi li:hover {
     background-color: #eee;
 }
 
-.navi ul a {
+.navi li a {
     font-size: 16px;
 }
 
