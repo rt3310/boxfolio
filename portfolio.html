@@ -29,103 +29,105 @@
         <script src="https://kit.fontawesome.com/5ac43742ba.js" crossorigin="anonymous"></script>
     </head>
 <body>
-    <header>
-        <div class="wrap">
-            <div class="head-container">
-                <h1 class="logo">
-                    <a href="http://127.0.0.1:5500/home.html">BOXFOLIO</a>
-                </h1>
-                <ul class="navi">
-                    <li>
-                        <a href="http://127.0.0.1:5500/portfolio.html">포트폴리오</a>
-                    </li>
-                    <li>
-                        <a href="#">대외활동</a>
-                    </li>
-                    <li>
-                        <a href="#">커뮤니티</a>
-                    </li>
-                    <li>
-                        <a href="#">문의하기</a>
-                    </li>
-                </ul>
-                
-                <div class="menu">
-                    <div class="search">
-                        <form id="search-form" action="#" method="get" role="search">
-                            <input id="query" type="text" title="검색" maxlength="255">
-                            <button id="search-btn" type="submit" title="검색"></button>
+    <div class="root-wrap">
+        <header>
+            <div class="wrap">
+                <div class="head-container">
+                    <h1 class="logo">
+                        <a href="http://127.0.0.1:5500/home.html">BOXFOLIO</a>
+                    </h1>
+                    <ul class="navi">
+                        <li>
+                            <a href="http://127.0.0.1:5500/portfolio.html">포트폴리오</a>
+                        </li>
+                        <li>
+                            <a href="#">대외활동</a>
+                        </li>
+                        <li>
+                            <a href="http://127.0.0.1:5500/community.html">커뮤니티</a>
+                        </li>
+                        <li>
+                            <a href="#">문의하기</a>
+                        </li>
+                    </ul>
+                    
+                    <div class="menu">
+                        <div class="search">
+                            <form id="search-form" action="#" method="get" role="search">
+                                <input id="query" type="text" title="검색" maxlength="255">
+                                <button id="search-btn" type="submit" title="검색"></button>
+                            </form>
+                        </div>
+                        <a href="http://127.0.0.1:5500/login.html" class="login">로그인</a>
+                        <i class="menu-div-bar"></i>
+                        <a href="http://127.0.0.1:5500/signin.html" class="signin">회원가입</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <section>
+            <div class="wrap">
+                <div class="access-container">
+                    <div class="pofol-search">
+                        <form id="pofol-search-form" action="#" method="get" role="search">
+                            <input id="pofol-query" type="text" title="포트폴리오검색" maxlength="255">
+                            <button id="pofol-search-btn" type="submit" title="포트폴리오검색"></button>
                         </form>
                     </div>
-                    <a href="http://127.0.0.1:5500/login.html" class="login">로그인</a>
-                    <i class="menu-div-bar"></i>
-                    <a href="http://127.0.0.1:5500/signin.html" class="signin">회원가입</a>
+                    <div class="to-mypofol">
+                        <span>내 포트폴리오 만들기</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </header>
-    <section>
-        <div class="wrap">
-            <div class="access-container">
-                <div class="pofol-search">
-                    <form id="pofol-search-form" action="#" method="get" role="search">
-                        <input id="pofol-query" type="text" title="포트폴리오검색" maxlength="255">
-                        <button id="pofol-search-btn" type="submit" title="포트폴리오검색"></button>
-                    </form>
-                </div>
-                <div class="to-mypofol">
-                    <span>내 포트폴리오 만들기</span>
-                    <i class="fas fa-arrow-right"></i>
-                </div>
-            </div>
-            <div class="pofol-container">
-                <ul class="pofol-list">
-                    <li class="pofol-card">
-                        <a href="#">
-                            <img src="/resources/computer.jpeg" alt="portfolio" class="pofol-image"/>
-                            <div class="pofol-info">
-                                <div class="pofol-title">
-                                    <h3>OOO님의 포트폴리오</h3>
+                <div class="pofol-container">
+                    <ul class="pofol-list">
+                        <li class="pofol-card">
+                            <a href="#">
+                                <img src="/resources/computer.jpeg" alt="portfolio" class="pofol-image"/>
+                                <div class="pofol-info">
+                                    <div class="pofol-title">
+                                        <h3>OOO님의 포트폴리오</h3>
+                                    </div>
+                                    <div class="pofol-depart">
+                                        <p>컴퓨터공학과</p>
+                                    </div>
+                                    <div class="pofol-hope">
+                                        <p>웹 프론트/서버</p>
+                                    </div>
+                                    <div class="pofol-intro">
+                                        <p>한줄 소개</p>
+                                    </div>
                                 </div>
-                                <div class="pofol-depart">
-                                    <p>컴퓨터공학과</p>
-                                </div>
-                                <div class="pofol-hope">
-                                    <p>웹 프론트/서버</p>
-                                </div>
-                                <div class="pofol-intro">
-                                    <p>한줄 소개</p>
-                                </div>
-                            </div>
-                        </a>
-                        <ul class="pofol-icons">
-                            <li class="pofol-star">
-                                <i class="far fa-star"></i>
-                            </li>
-                            <li class="pofol-mark">
-                                <i class="far fa-bookmark"></i>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </section>
-    <footer>
-        <div class="wrap">
-            <div class="intro-container">
-                <div class="intro">
-                    <ul>
-                        <li>작성자: 서원호</li>
-                        <li>tel: 010-4805-3273</li>
-                        <li>
-                            email:
-                            <a href="mailto:btac3310@gmail.com">btac3310@gmail.com</a>
+                            </a>
+                            <ul class="pofol-icons">
+                                <li class="pofol-star">
+                                    <i class="far fa-star"></i>
+                                </li>
+                                <li class="pofol-mark">
+                                    <i class="far fa-bookmark"></i>
+                                </li>
+                            </ul>
                         </li>
                     </ul>
                 </div>
             </div>
-        </div>
-    </footer>
+        </section>
+        <footer>
+            <div class="wrap">
+                <div class="intro-container">
+                    <div class="intro">
+                        <ul>
+                            <li>작성자: 서원호</li>
+                            <li>tel: 010-4805-3273</li>
+                            <li>
+                                email:
+                                <a href="mailto:btac3310@gmail.com">btac3310@gmail.com</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
 </body>
 </html>

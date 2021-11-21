@@ -29,109 +29,111 @@
     <script src="https://kit.fontawesome.com/5ac43742ba.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header>
-        <div class="wrap">
-            <div class="head-container">
-                <h1 class="logo">
-                    <a href="http://127.0.0.1:5500/home.html">BOXFOLIO</a>
-                </h1>
-                <ul class="navi">
-                    <li>
-                        <a href="http://127.0.0.1:5500/portfolio.html">포트폴리오</a>
-                    </li>
-                    <li>
-                        <a href="#">대외활동</a>
-                    </li>
-                    <li>
-                        <a href="#">커뮤니티</a>
-                    </li>
-                    <li>
-                        <a href="#">문의하기</a>
-                    </li>
-                </ul>
-                
-                <div class="menu">
-                    <div class="search">
-                        <form id="search-form" action="#" method="get" role="search">
-                            <input id="query" type="text" title="검색" maxlength="255">
-                            <button id="search-btn" type="submit" title="검색"></button>
-                        </form>
-                    </div>
-                    <a href="http://127.0.0.1:5500/login.html" class="login">로그인</a>
-                    <i class="menu-div-bar"></i>
-                    <a href="http://127.0.0.1:5500/signin.html" class="signin">회원가입</a>
-                </div>
-            </div>
-        </div>
-    </header>
-    <section>
-        <div class="signin-title">
-            <h1>Signin for BOXFOLIO</h1>
-        </div>
-    </section>
-    <section>
-        <div class="wrap">
-            <div class="signin-container">
-                <form class="signin-form" action="#" method="post">
-                    <div class="id-area">
-                        <label for="input-id">아이디</label>
-                        <input class="input-id" type="text" name="id" autofocus required/>
-                    </div>
-                    <div class="pw-area">
-                        <label for="input-pw">비밀번호</label>
-                        <input class="input-pw" type="password" name="passwd" required/>
-                    </div>
-                    <div class="pwcheck-area">
-                        <label for="input-pwcheck">비밀번호 확인</label>
-                        <input class="input-pwcheck" type="password" name="passwdcheck" required/>
-                    </div>
-                    <div class="name-area">
-                        <label for="input-name">이름</label>
-                        <input class="input-name" type="text" name="name" required/>
-                    </div>
-                    <div class="birth-area">
-                        <label for="input-birth">생년월일</label>
-                        <div class="input-birth">
-                            <input class="input-year" type="text" name="year" required placeholder="년"/>
-                            <input class="input-month" type="text" name="month" required placeholder="월"/>
-                            <input class="input-day" type="text" name="day" required placeholder="일"/>
-                        </div>
-                    </div>
-                    <div class="email-area">
-                        <label for="input-email">이메일</label>
-                        <div class="input-email">
-                            <input class="input-email-id" type="text" name="email" required/>
-                            <span>@</span>
-                            <select name="address" id="address" required>
-                                <option value="directly">직접입력</option>
-                                <option value="naver">naver.com</option>
-                                <option value="google">gmail.com</option>
-                                <option value="kakao">kakao.com</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="signin-btn-area">
-                        <input class="signin-btn" type="submit" name="submit" value="회원가입"/>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </section>
-    <footer>
-        <div class="wrap">
-            <div class="intro-container">
-                <div class="intro">
-                    <ul>
-                        <li>작성자: 서원호</li>
-                        <li>tel: 010-4805-3273</li>
+    <div class="root-wrap">
+        <header>
+            <div class="wrap">
+                <div class="head-container">
+                    <h1 class="logo">
+                        <a href="http://127.0.0.1:5500/home.html">BOXFOLIO</a>
+                    </h1>
+                    <ul class="navi">
                         <li>
-                            email:
-                            <a href="mailto:btac3310@gmail.com">btac3310@gmail.com</a>
+                            <a href="http://127.0.0.1:5500/portfolio.html">포트폴리오</a>
+                        </li>
+                        <li>
+                            <a href="#">대외활동</a>
+                        </li>
+                        <li>
+                            <a href="http://127.0.0.1:5500/community.html">커뮤니티</a>
+                        </li>
+                        <li>
+                            <a href="#">문의하기</a>
                         </li>
                     </ul>
+                    
+                    <div class="menu">
+                        <div class="search">
+                            <form id="search-form" action="#" method="get" role="search">
+                                <input id="query" type="text" title="검색" maxlength="255">
+                                <button id="search-btn" type="submit" title="검색"></button>
+                            </form>
+                        </div>
+                        <a href="http://127.0.0.1:5500/login.html" class="login">로그인</a>
+                        <i class="menu-div-bar"></i>
+                        <a href="http://127.0.0.1:5500/signin.html" class="signin">회원가입</a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </footer>
+        </header>
+        <section>
+            <div class="signin-title">
+                <h1>Signin for BOXFOLIO</h1>
+            </div>
+        </section>
+        <section>
+            <div class="wrap">
+                <div class="signin-container">
+                    <form class="signin-form" action="#" method="post">
+                        <div class="id-area">
+                            <label for="input-id">아이디</label>
+                            <input class="input-id" type="text" name="id" autofocus required/>
+                        </div>
+                        <div class="pw-area">
+                            <label for="input-pw">비밀번호</label>
+                            <input class="input-pw" type="password" name="passwd" required/>
+                        </div>
+                        <div class="pwcheck-area">
+                            <label for="input-pwcheck">비밀번호 확인</label>
+                            <input class="input-pwcheck" type="password" name="passwdcheck" required/>
+                        </div>
+                        <div class="name-area">
+                            <label for="input-name">이름</label>
+                            <input class="input-name" type="text" name="name" required/>
+                        </div>
+                        <div class="birth-area">
+                            <label for="input-birth">생년월일</label>
+                            <div class="input-birth">
+                                <input class="input-year" type="text" name="year" required placeholder="년"/>
+                                <input class="input-month" type="text" name="month" required placeholder="월"/>
+                                <input class="input-day" type="text" name="day" required placeholder="일"/>
+                            </div>
+                        </div>
+                        <div class="email-area">
+                            <label for="input-email">이메일</label>
+                            <div class="input-email">
+                                <input class="input-email-id" type="text" name="email" required/>
+                                <span>@</span>
+                                <select name="address" id="address" required>
+                                    <option value="directly">직접입력</option>
+                                    <option value="naver">naver.com</option>
+                                    <option value="google">gmail.com</option>
+                                    <option value="kakao">kakao.com</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="signin-btn-area">
+                            <input class="signin-btn" type="submit" name="submit" value="회원가입"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <div class="wrap">
+                <div class="intro-container">
+                    <div class="intro">
+                        <ul>
+                            <li>작성자: 서원호</li>
+                            <li>tel: 010-4805-3273</li>
+                            <li>
+                                email:
+                                <a href="mailto:btac3310@gmail.com">btac3310@gmail.com</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
 </body>
 </html>

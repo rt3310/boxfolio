@@ -13,11 +13,7 @@ body {
     font-size: 14px;
 }
 
-p {
-    margin: 0;
-}
-
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, th, td, p {
     margin: 0;
 }
 
@@ -33,6 +29,12 @@ li {
 
 button:hover {
     cursor: pointer;
+}
+
+.root-wrap {
+    min-height: 100%;
+    position: relative;
+    padding-bottom: 100px;
 }
 
 .wrap {
@@ -185,7 +187,7 @@ header {
 }
 
 .pofol-card {
-    border: solid 1px #eee;
+    border: 1px solid #eee;
     border-radius: 8px;
     box-shadow: 10px 10px 10px -5px rgba(25, 42, 70, 0.2);
     height: 280px;
@@ -251,8 +253,12 @@ header {
 /* footer */
 footer {
     background-color: #333;
+    bottom: 0;
     height: 100px;
+    left: 0;
     min-width: 1200px;
+    position: absolute;
+    width: 100%;
 }
 
 .intro-container {

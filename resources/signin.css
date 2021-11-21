@@ -13,11 +13,7 @@ body {
     font-size: 14px;
 }
 
-p {
-    margin: 0;
-}
-
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, th, td, p {
     margin: 0;
 }
 
@@ -33,6 +29,12 @@ li {
 
 button:hover {
     cursor: pointer;
+}
+
+.root-wrap {
+    min-height: 100%;
+    position: relative;
+    padding-bottom: 100px;
 }
 
 .wrap {
@@ -142,12 +144,11 @@ header {
 .signin-container {
     align-items: center;
     display: flex;
-    min-height: calc(100vh - 280px);
     justify-content: center;
 }
 
 .signin-form {
-    border: solid 1px #ddd;
+    border: 1px solid #ddd;
     display: flex;
     flex-direction: column;
     height: 620px;
@@ -157,7 +158,7 @@ header {
 }
 
 .input-id {
-    border: solid 1px #ddd;
+    border: 1px solid #ddd;
     font-size: 14px;
     height: 40px;
     margin: 15px 0 10px 0;
@@ -166,7 +167,7 @@ header {
 }
 
 .input-pw {
-    border: solid 1px #ddd;
+    border: 1px solid #ddd;
     font-size: 14px;
     height: 40px;
     margin: 10px 0;
@@ -175,7 +176,7 @@ header {
 }
 
 .input-pwcheck {
-    border: solid 1px #ddd;
+    border: 1px solid #ddd;
     font-size: 14px;
     height: 40px;
     margin: 10px 0;
@@ -184,7 +185,7 @@ header {
 }
 
 .input-name {
-    border: solid 1px #ddd;
+    border: 1px solid #ddd;
     font-size: 14px;
     height: 40px;
     margin: 10px 0;
@@ -198,7 +199,7 @@ header {
 }
 
 .input-birth input {
-    border: solid 1px #ddd;
+    border: 1px solid #ddd;
     font-size: 14px;
     height: 40px;
     margin: 10px 0;
@@ -207,7 +208,7 @@ header {
 }
 
 .input-email-id {
-    border: solid 1px #ddd;
+    border: 1px solid #ddd;
     font-size: 14px;
     height: 40px;
     margin: 10px 0;
@@ -216,7 +217,7 @@ header {
 }
 
 #address {
-    border: solid 1px #ddd;
+    border: 1px solid #ddd;
     font-size: 14px;
     height: 40px;
     margin: 10px 0;
@@ -242,8 +243,12 @@ header {
 /* footer */
 footer {
     background-color: #333;
+    bottom: 0;
     height: 100px;
+    left: 0;
     min-width: 1200px;
+    position: absolute;
+    width: 100%;
 }
 
 .intro-container {
