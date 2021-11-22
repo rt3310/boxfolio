@@ -23,7 +23,7 @@
     <link rel="short icon" type="image/x-icon" href="resources/magic-box.png">
 
     <!--CSS-->
-    <link rel="stylesheet" href="resources/home.css">
+    <link rel="stylesheet" href="resources/login.css">
 
     <!--FontAwesome-->
     <script src="https://kit.fontawesome.com/5ac43742ba.js" crossorigin="anonymous"></script>
@@ -34,17 +34,17 @@
             <div class="wrap">
                 <div class="head-container">
                     <h1 class="logo">
-                        <a href="http://127.0.0.1:8080/boxfolio/home.html">BOXFOLIO</a>
+                        <a href="http://127.0.0.1:8080/wonho_free/home.html">BOXFOLIO</a>
                     </h1>
                     <ul class="navi">
                         <li>
-                            <a href="http://127.0.0.1:8080/boxfolio/portfolio.html">포트폴리오</a>
+                            <a href="http://127.0.0.1:8080/wonho_free/portfolio.html">포트폴리오</a>
                         </li>
                         <li>
                             <a href="#">대외활동</a>
                         </li>
                         <li>
-                            <a href="http://127.0.0.1:8080/boxfolio/community.html">커뮤니티</a>
+                            <a href="http://127.0.0.1:8080/wonho_free/community.html">커뮤니티</a>
                         </li>
                         <li>
                             <a href="#">문의하기</a>
@@ -55,70 +55,52 @@
                         <div class="search">
                             <form id="search-form" action="#" method="get" role="search">
                                 <input id="query" type="text" title="검색" maxlength="255">
-                                <button id="search-btn" type="submit" title="검색"></button>
+                                <button id="search-btn" type="submit" title="검색">
+                                	<i class="fas fa-search search-icon"></i>
+                                </button>
                             </form>
                         </div>
-                        <a href="http://127.0.0.1:8080/boxfolio/login.html" class="login">로그인</a>
+                        <a href="http://localhost:8080/wonho_free/userServlet?cmd=login" class="login">로그인</a>
                         <i class="menu-div-bar"></i>
-                        <a href="http://127.0.0.1:8080/boxfolio/signin.html" class="signin">회원가입</a>
+                        <a href="http://localhost:8080/wonho_free/userServlet?cmd=signin" class="signin">회원가입</a>
                     </div>
                 </div>
             </div>
         </header>
         <section>
-            <div class="banner">
-                <div class="wrap">
-                    <div class="banner-container">
-                        <h2>내 박스안의 포트폴리오 Boxfolio</h2>
-                        <p>나만의 포트폴리오를 구성하고 관리하자!</p>
-                    </div>
-                </div>
+            <div class="login-title">
+                <h1>Login for BOXFOLIO</h1>
             </div>
         </section>
         <section>
             <div class="wrap">
-                <div class="contents-container">
-                    <ul class="contents">
-                        <li>
-                            <a href="#">
-                                <img id="content-drawup" src="resources/contract.png" alt="포트폴리오 작성하기"/>
-                                <p>포트폴리오 작성</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img id="content-check" src="resources/box.png" alt="내 포트폴리오 확인"/>
-                                <p>내 포트폴리오 확인</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img id="content-team" src="resources/people.png" alt="포트폴리오 작성하기"/>
-                                <p>대외활동 팀원 찾기</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img id="content-inquire" src="resources/question.png" alt="포트폴리오 작성하기"/>
-                                <p>1:1 질문</p>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                
-            </div>
-        </section>
-        <section>
-            <div class="wrap">
-                <div class="top-list-container">
-                    <h2>인기 대외활동</h2>
-                    <div class="top-list-inner">
-                        <i class="far fa-caret-square-left prev-btn"></i>
-                        <div class="top-list">
-                            
+                <div class="login-container">
+                    <form class="login-form" action="#" method="post">
+                        <div class="id-area">
+                            <i class="fas fa-user id-icon"></i>
+                            <input type="text" name="id" autofocus required placeholder="아이디"/>
                         </div>
-                        <i class="far fa-caret-square-right next-btn"></i>
-                    </div>
+                        <div class="pw-area">
+                            <i class="fas fa-key pw-icon"></i>
+                            <input type="password" name="passwd" required placeholder="비밀번호"/>
+                        </div>
+                        <div class="keep-login-area">
+                            <label for="keep-login" style="cursor: pointer;"><input id="keep-login" type="checkbox" name="keep-login" value="로그인 상태 유지"/>로그인 상태 유지</label>
+                        </div>
+                        <div class="keep-id-area">
+                            <label for="keep-id" style="cursor: pointer;"><input id="keep-id" type="checkbox" name="keep-id" value="아이디 유지"/>아이디 유지</label>
+                        </div>
+                        <div class="login-btn-area">
+                            <input class="login-btn" type="submit" name="submit" value="로그인"/>
+                        </div>
+                        <div class="login-manage-area">
+                            <a href="#" class="seek-id">아이디 찾기</a>
+                            <i class="menu-div-bar"></i>
+                            <a href="#" class="seek-pw">비밀번호 찾기</a>
+                            <i class="menu-div-bar"></i>
+                            <a href="http://127.0.0.1:8080/wonho_free/signin.html" class="signin">회원가입</a>
+                        </div>
+                    </form>
                 </div>
             </div>
         </section>
@@ -140,4 +122,4 @@
         </footer>
     </div>
 </body>
-</html>
+</html> 

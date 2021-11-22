@@ -34,17 +34,17 @@
             <div class="wrap">
                 <div class="head-container">
                     <h1 class="logo">
-                        <a href="http://127.0.0.1:8080/boxfolio/home.html">BOXFOLIO</a>
+                        <a href="http://127.0.0.1:8080/wonho_free/home.html">BOXFOLIO</a>
                     </h1>
                     <ul class="navi">
                         <li>
-                            <a href="http://127.0.0.1:8080/boxfolio/portfolio.html">포트폴리오</a>
+                            <a href="http://127.0.0.1:8080/wonho_free/portfolio.html">포트폴리오</a>
                         </li>
                         <li>
                             <a href="#">대외활동</a>
                         </li>
                         <li>
-                            <a href="http://127.0.0.1:8080/boxfolio/community.html">커뮤니티</a>
+                            <a href="http://127.0.0.1:8080/wonho_free/community.html">커뮤니티</a>
                         </li>
                         <li>
                             <a href="#">문의하기</a>
@@ -55,12 +55,14 @@
                         <div class="search">
                             <form id="search-form" action="#" method="get" role="search">
                                 <input id="query" type="text" title="검색" maxlength="255">
-                                <button id="search-btn" type="submit" title="검색"></button>
+                                <button id="search-btn" type="submit" title="검색">
+                                	<i class="fas fa-search search-icon"></i>
+                                </button>
                             </form>
                         </div>
-                        <a href="http://127.0.0.1:8080/boxfolio/login.html" class="login">로그인</a>
+                        <a href="http://localhost:8080/wonho_free/userServlet?cmd=login" class="login">로그인</a>
                         <i class="menu-div-bar"></i>
-                        <a href="http://127.0.0.1:8080/boxfolio/signin.html" class="signin">회원가입</a>
+                        <a href="http://localhost:8080/wonho_free/userServlet?cmd=signin" class="signin">회원가입</a>
                     </div>
                 </div>
             </div>
@@ -71,7 +73,9 @@
                     <div class="pofol-search">
                         <form id="pofol-search-form" action="#" method="get" role="search">
                             <input id="pofol-query" type="text" title="포트폴리오검색" maxlength="255">
-                            <button id="pofol-search-btn" type="submit" title="포트폴리오검색"></button>
+                            <button id="pofol-search-btn" type="submit" title="포트폴리오검색">
+                            	<i class="fas fa-search search-icon"></i>
+                            </button>
                         </form>
                     </div>
                     <div class="to-mypofol">

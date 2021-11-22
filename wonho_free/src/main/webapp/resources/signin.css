@@ -17,11 +17,6 @@ h1, h2, h3, h4, h5, h6, th, td, p {
     margin: 0;
 }
 
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
-}
-
 a {
     all: unset;
     cursor: pointer;
@@ -98,23 +93,26 @@ header {
     display: flex;
 }
 
+
 #query {
-    border: 1;
+    background-color: transparent;
+    border: 1px solid black;
+    border-radius: 2px;
     height: 20px;
     margin: 0;
-    padding: 0;
+    outline: 0;
+    padding: 2px;
     width: 150px;
 }
 
 #search-btn {
-    background-image: url("/resources/search.png");
-    background-size: cover;
-    background-repeat: no-repeat;
     background-color: transparent;
     border: 0;
+    font-size: 15px;
     height: 20px;
     margin: 0 10px;
     outline: 0;
+    padding: 0;
     width: 20px;
 }
 
@@ -131,106 +129,118 @@ header {
     width: 1px;
 }
 
-/* notice-title */
-.notice-title-container {
-    background-color: #fdb;
-    border-radius: 8px;
-    margin: 20px 10px;
-    padding: 20px 30px;
+/* signin-title */
+.signin-title {
+    background-color: #f93;
+    color: #fff;
+    height: 100px;
+    line-height: 100px;
+    min-width: 1200px;
+    text-align: center;
 }
 
-.edit-head-container {
-    margin: 20px 10px;
+.signin-title h1 {
+    font-size: 32px;
 }
 
-#category {
-    background-color: #fdb;
+/* signin-area */
+.signin-container {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.signin-form {
     border: 1px solid #ddd;
-    border-radius: 3px;
-    padding: 5px 20px;
+    display: flex;
+    flex-direction: column;
+    height: 620px;
+    padding: 30px;
+    margin: 50px 0;
+    width: 420px;
 }
 
-.edit-container {
-    margin: 20px 10px;
-}
-
-#edit-title {
-    border: 0;
-    border-top: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
-    font-size: 16px;
-    font-family: "맑은 고딕", "고딕";
-    height: 42px;
-    line-height: 20px;
-    margin: 10px 0;
-    outline: none;
-    overflow: hidden;
+.input-id {
+    border: 1px solid #ddd;
+    font-size: 14px;
+    height: 40px;
+    margin: 15px 0 10px 0;
     padding: 10px;
-    resize: none;
     width: 100%;
 }
 
-.edit-tool {
-    border-bottom: 1px solid #ddd;
+.input-pw {
+    border: 1px solid #ddd;
+    font-size: 14px;
+    height: 40px;
     margin: 10px 0;
     padding: 10px;
+    width: 100%;
 }
 
-.edit-tool button {
-    background-color: transparent;
-    border: none;
-    font-size: 20px;
-    font-weight: b;
-    margin: 0 5px;
-}
-
-.edit-tool button:hover {
-    color: #f93;
-}
-
-.edit-tool button.active {
-    color: #35f;
-}
-
-#editor {
-    background-color: #fafafa;
-    border-radius: 3px;
-    height: 500px;
-    outline: none;
-    padding: 16px 24px;
-    overflow: scroll;
-    text-align: justify;
-}
-
-#editor img {
-    max-width: 100%;
-}
-
-.access-container {
-    display: flex;
-    justify-content: center;
-    margin: 20px 10px;
-}
-
-.access-container button {
+.input-pwcheck {
     border: 1px solid #ddd;
-    border-radius: 3px;
+    font-size: 14px;
+    height: 40px;
+    margin: 10px 0;
+    padding: 10px;
+    width: 100%;
+}
+
+.input-name {
+    border: 1px solid #ddd;
+    font-size: 14px;
+    height: 40px;
+    margin: 10px 0;
+    padding: 10px;
+    width: 100%;
+}
+
+.input-birth {
+    display: flex;
+    justify-content: space-between;
+}
+
+.input-birth input {
+    border: 1px solid #ddd;
+    font-size: 14px;
+    height: 40px;
+    margin: 10px 0;
+    padding: 10px;
+    width: 30%;
+}
+
+.input-email-id {
+    border: 1px solid #ddd;
+    font-size: 14px;
+    height: 40px;
+    margin: 10px 0;
+    padding: 10px;
+    width: 40%;
+}
+
+#address {
+    border: 1px solid #ddd;
+    font-size: 14px;
+    height: 40px;
+    margin: 10px 0;
+    padding: 10px;
+    width: 52%;
+}
+
+.signin-btn {
+    background-color: #fa5;
+    border: none;
     color: #fff;
-    font-size: 16px;
-    margin: 0 10px;
-    padding: 10px 30px;
+    font-size: 18px;
+    height: 72px;
+    margin: 20px 0 0;
+    width: 100%;
 }
 
-#save-edit {
-    background-color: #f93;
-}
-
-#cancel-edit {
-    background-color: #555;
-}
-
-#image-select {
-    display: none;
+.signin-btn:hover {
+    background-color: #fb7;
+    cursor: pointer;
 }
 
 /* footer */
@@ -245,9 +255,9 @@ footer {
 }
 
 .intro-container {
-    align-items: center;
-    display: flex;
     height: 100%;
+    display: flex;
+    align-items: center;
 }
 
 .intro ul {

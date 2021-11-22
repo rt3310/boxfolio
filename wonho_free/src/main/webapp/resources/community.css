@@ -17,6 +17,11 @@ h1, h2, h3, h4, h5, h6, th, td, p {
     margin: 0;
 }
 
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
 a {
     all: unset;
     cursor: pointer;
@@ -46,7 +51,7 @@ button:hover {
 
 /* header */
 header {
-    background-color: #fff;
+    background-color: #f93;
     height: 80px;
     left: 0;
     top: 0;
@@ -61,7 +66,7 @@ header {
 }
 
 .logo a {
-    color: #f93;
+    color: #fff;
     font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     margin: 0 10px;
 }
@@ -77,7 +82,7 @@ header {
 }
 
 .navi a:hover {
-    background-color: #eee;
+    background-color: #d83;
 }
 
 .menu {
@@ -94,22 +99,24 @@ header {
 }
 
 #query {
-    border: 1;
+    background-color: transparent;
+    border: 1px solid #eca;
+    border-radius: 2px;
     height: 20px;
     margin: 0;
-    padding: 0;
+    outline: 0;
+    padding: 2px;
     width: 150px;
 }
 
 #search-btn {
-    background-image: url("/resources/search.png");
-    background-size: cover;
-    background-repeat: no-repeat;
     background-color: transparent;
     border: 0;
+    font-size: 15px;
     height: 20px;
     margin: 0 10px;
     outline: 0;
+    padding: 0;
     width: 20px;
 }
 
@@ -126,118 +133,65 @@ header {
     width: 1px;
 }
 
-/* signin-title */
-.signin-title {
-    background-color: #f93;
-    color: #fff;
-    height: 100px;
-    line-height: 100px;
-    min-width: 1200px;
+/* notice-title */
+.notice-title-container {
+    background-color: #fdb;
+    border-radius: 8px;
+    margin: 20px 10px;
+    padding: 20px 30px 10px;
+}
+
+.notice-category {
+    display: flex;
+    margin: 30px 0 15px;
+    padding: 0;
+}
+
+.notice-category li a {
+    padding: 10px 15px;
+    margin: 0 3px;
+}
+
+.notice-category li a:hover {
+    background-color: #eca;
+}
+
+.notice-container {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.notice {
+    border-top: 1px solid #333;
+    width: 100%;
+}
+
+.notice th, .notice td {
+    border-bottom: 1px solid #ddd;
+    height: 35px;
+    padding: 7px 3px;
+}
+
+.td-num, .td-name, .td-date, .td-view, .td-like, .td-scrap {
     text-align: center;
 }
 
-.signin-title h1 {
-    font-size: 32px;
+.td-title a:hover {
+    text-decoration: underline;
 }
 
-/* signin-area */
-.signin-container {
-    align-items: center;
+.access-container {
     display: flex;
-    justify-content: center;
-}
-
-.signin-form {
-    border: 1px solid #ddd;
-    display: flex;
-    flex-direction: column;
-    height: 620px;
-    padding: 30px;
-    margin: 50px 0;
-    width: 420px;
-}
-
-.input-id {
-    border: 1px solid #ddd;
-    font-size: 14px;
-    height: 40px;
-    margin: 15px 0 10px 0;
-    padding: 10px;
-    width: 100%;
-}
-
-.input-pw {
-    border: 1px solid #ddd;
-    font-size: 14px;
-    height: 40px;
+    justify-content: flex-end;
     margin: 10px 0;
-    padding: 10px;
-    width: 100%;
 }
 
-.input-pwcheck {
-    border: 1px solid #ddd;
-    font-size: 14px;
-    height: 40px;
-    margin: 10px 0;
-    padding: 10px;
-    width: 100%;
-}
-
-.input-name {
-    border: 1px solid #ddd;
-    font-size: 14px;
-    height: 40px;
-    margin: 10px 0;
-    padding: 10px;
-    width: 100%;
-}
-
-.input-birth {
-    display: flex;
-    justify-content: space-between;
-}
-
-.input-birth input {
-    border: 1px solid #ddd;
-    font-size: 14px;
-    height: 40px;
-    margin: 10px 0;
-    padding: 10px;
-    width: 30%;
-}
-
-.input-email-id {
-    border: 1px solid #ddd;
-    font-size: 14px;
-    height: 40px;
-    margin: 10px 0;
-    padding: 10px;
-    width: 40%;
-}
-
-#address {
-    border: 1px solid #ddd;
-    font-size: 14px;
-    height: 40px;
-    margin: 10px 0;
-    padding: 10px;
-    width: 52%;
-}
-
-.signin-btn {
-    background-color: #fa5;
-    border: none;
-    color: #fff;
-    font-size: 18px;
-    height: 72px;
-    margin: 20px 0 0;
-    width: 100%;
-}
-
-.signin-btn:hover {
+.write-notice {
     background-color: #fb7;
-    cursor: pointer;
+    border: 0;
+    border-radius: 5px;
+    padding: 10px 15px;
 }
 
 /* footer */
@@ -252,9 +206,9 @@ footer {
 }
 
 .intro-container {
-    height: 100%;
-    display: flex;
     align-items: center;
+    display: flex;
+    height: 100%;
 }
 
 .intro ul {

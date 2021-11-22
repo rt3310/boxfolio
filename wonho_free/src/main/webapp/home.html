@@ -23,7 +23,7 @@
     <link rel="short icon" type="image/x-icon" href="resources/magic-box.png">
 
     <!--CSS-->
-    <link rel="stylesheet" href="resources/community.css">
+    <link rel="stylesheet" href="resources/home.css">
 
     <!--FontAwesome-->
     <script src="https://kit.fontawesome.com/5ac43742ba.js" crossorigin="anonymous"></script>
@@ -34,17 +34,17 @@
             <div class="wrap">
                 <div class="head-container">
                     <h1 class="logo">
-                        <a href="http://127.0.0.1:8080/boxfolio/home.html">BOXFOLIO</a>
+                        <a href="http://127.0.0.1:8080/wonho_free/home.html">BOXFOLIO</a>
                     </h1>
                     <ul class="navi">
                         <li>
-                            <a href="http://127.0.0.1:8080/boxfolio/portfolio.html">포트폴리오</a>
+                            <a href="http://127.0.0.1:8080/wonho_free/portfolio.html">포트폴리오</a>
                         </li>
                         <li>
                             <a href="#">대외활동</a>
                         </li>
                         <li>
-                            <a href="http://127.0.0.1:8080/boxfolio/community.html">커뮤니티</a>
+                            <a href="http://127.0.0.1:8080/wonho_free/community.html">커뮤니티</a>
                         </li>
                         <li>
                             <a href="#">문의하기</a>
@@ -55,72 +55,72 @@
                         <div class="search">
                             <form id="search-form" action="#" method="get" role="search">
                                 <input id="query" type="text" title="검색" maxlength="255">
-                                <button id="search-btn" type="submit" title="검색"></button>
+                                <button id="search-btn" type="submit" title="검색">
+                                	<i class="fas fa-search search-icon"></i>
+                                </button>
                             </form>
                         </div>
-                        <a href="http://127.0.0.1:8080/boxfolio/login.html" class="login">로그인</a>
+                        <a href="http://localhost:8080/wonho_free/userServlet?cmd=login" class="login">로그인</a>
                         <i class="menu-div-bar"></i>
-                        <a href="http://127.0.0.1:8080/boxfolio/signin.html" class="signin">회원가입</a>
+                        <a href="http://localhost:8080/wonho_free/userServlet?cmd=signin" class="signin">회원가입</a>
                     </div>
                 </div>
             </div>
         </header>
         <section>
+            <div class="banner">
+                <div class="wrap">
+                    <div class="banner-container">
+                        <h2>내 박스안의 포트폴리오 Boxfolio</h2>
+                        <p>나만의 포트폴리오를 구성하고 관리하자!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
             <div class="wrap">
-                <div class="notice-title-container">
-                    <h2 class="notice-title">자유게시판</h2>
-                    <ul class="notice-category">
-                        <li class="free-notice">
-                            <a href="#">자유</a>
+                <div class="contents-container">
+                    <ul class="contents">
+                        <li>
+                            <a href="#">
+                                <img id="content-drawup" src="resources/contract.png" alt="포트폴리오 작성하기"/>
+                                <p>포트폴리오 작성</p>
+                            </a>
                         </li>
-                        <li class="info-notice">
-                            <a href="#">정보</a>
+                        <li>
+                            <a href="#">
+                                <img id="content-check" src="resources/box.png" alt="내 포트폴리오 확인"/>
+                                <p>내 포트폴리오 확인</p>
+                            </a>
                         </li>
-                        <li class="anony-notice">
-                            <a href="#">익명</a>
+                        <li>
+                            <a href="#">
+                                <img id="content-team" src="resources/people.png" alt="포트폴리오 작성하기"/>
+                                <p>대외활동 팀원 찾기</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img id="content-inquire" src="resources/question.png" alt="포트폴리오 작성하기"/>
+                                <p>1:1 질문</p>
+                            </a>
                         </li>
                     </ul>
                 </div>
-                <div class="notice-container">
-                    <table class="notice">
-                        <colgroup>
-                            <col style="width: 70px;">
-                            <col>
-                            <col style="width: 110px;">
-                            <col style="width: 100px;">
-                            <col style="width: 80px;">
-                            <col style="width: 60px;">
-                            <col style="width: 60px;">
-                        </colgroup>
-                        <thead>
-                            <tr class="notice-head">
-                                <th>#</th>
-                                <th>제목</th>
-                                <th>작성자</th>
-                                <th>작성일</th>
-                                <th>조회</th>
-                                <th>추천</th>
-                                <th>스크랩</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="td-num">1</td>
-                                <td class="td-title"><a href="#">히히히</a></td>
-                                <td class="td-name"><a href="#">서원호</a></td>
-                                <td class="td-date">21-11-22</td>
-                                <td class="td-view">1</td>
-                                <td class="td-like">1</td>
-                                <td class="td-scrap">2</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="access-container">
-                    <button class="write-notice" type="button" title="글쓰기">
-                        <i class="far fa-edit"></i>
-                        <a href="http://127.0.0.1:8080/boxfolio/textedit.html">글쓰기</a>
-                    </button>
+                
+            </div>
+        </section>
+        <section>
+            <div class="wrap">
+                <div class="top-list-container">
+                    <h2>인기 대외활동</h2>
+                    <div class="top-list-inner">
+                        <i class="far fa-caret-square-left prev-btn"></i>
+                        <div class="top-list">
+                            
+                        </div>
+                        <i class="far fa-caret-square-right next-btn"></i>
+                    </div>
                 </div>
             </div>
         </section>
