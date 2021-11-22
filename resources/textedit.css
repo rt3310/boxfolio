@@ -188,12 +188,18 @@ header {
     color: #f93;
 }
 
+.edit-tool button.active {
+    color: #35f;
+}
+
 #editor {
     background-color: #fafafa;
     border-radius: 3px;
     height: 500px;
     outline: none;
     padding: 16px 24px;
+    overflow: scroll;
+    text-align: justify;
 }
 
 #editor img {
