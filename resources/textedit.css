@@ -196,6 +196,10 @@ header {
     padding: 16px 24px;
 }
 
+#editor img {
+    max-width: 100%;
+}
+
 .access-container {
     display: flex;
     justify-content: center;
@@ -217,6 +221,10 @@ header {
 
 #cancel-edit {
     background-color: #555;
+}
+
+#image-select {
+    display: none;
 }
 
 /* footer */
