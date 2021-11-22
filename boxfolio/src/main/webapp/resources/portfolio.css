@@ -151,7 +151,7 @@ header {
 }
 
 #pofol-search-btn {
-    background-image: url("/resources/search.png");
+    background-image: url("resources/search.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-color: transparent;
