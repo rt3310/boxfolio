@@ -204,6 +204,7 @@ header {
 .login-message-area {
 	color: red;
     height: 20px;
+    margin: 15px 0 5px 0;
 }
 
 .login-btn-area {

@@ -36,7 +36,7 @@
             <div class="wrap">
                 <div class="head-container">
                     <h1 class="logo">
-                        <a href="http://127.0.0.1:8080/wonho_free/home.html">BOXFOLIO</a>
+                        <a href="http://localhost:8080/wonho_free/MainServlet?cmd=home">BOXFOLIO</a>
                     </h1>
                     <ul class="navi">
                         <li>
@@ -92,8 +92,14 @@
                         <div class="keep-id-area">
                             <label for="keep-id" style="cursor: pointer;"><input id="keep-id" type="checkbox" name="keep-id" value="아이디 유지"/>아이디 유지</label>
                         </div>
-                        <div class="login-message">
-                            <p><%=request.getAttribute("loginError") %></p>
+                        <div class="login-message-area">
+                        	<%
+                        		String loginMsg = (String)request.getAttribute("loginError");
+                        		if (loginMsg == null) {
+                        			loginMsg = "";
+                        		}
+                        	%>
+                            <p><%=loginMsg %></p>
                         </div>
                         <div class="login-btn-area">
                             <input class="login-btn" type="submit" name="submit" value="로그인"/>
