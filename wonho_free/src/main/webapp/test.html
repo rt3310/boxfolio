@@ -23,7 +23,7 @@
     <link rel="short icon" type="image/x-icon" href="resources/magic-box.png">
 
     <!--CSS-->
-    <link rel="stylesheet" href="resources/signin.css">
+    <link rel="stylesheet" href="resources/home.css">
 
     <!--FontAwesome-->
     <script src="https://kit.fontawesome.com/5ac43742ba.js" crossorigin="anonymous"></script>
@@ -38,13 +38,13 @@
                     </h1>
                     <ul class="navi">
                         <li>
-                            <a href="http://127.0.0.1:8080/wonho_free/portfolio.html">포트폴리오</a>
+                            <a href="http://localhost:8080/wonho_free/MainServlet?cmd=portfolio">포트폴리오</a>
                         </li>
                         <li>
                             <a href="#">대외활동</a>
                         </li>
                         <li>
-                            <a href="http://127.0.0.1:8080/wonho_free/community.html">커뮤니티</a>
+                            <a href="http://localhost:8080/wonho_free/MainServlet?cmd=community">커뮤니티</a>
                         </li>
                         <li>
                             <a href="#">문의하기</a>
@@ -60,63 +60,69 @@
                                 </button>
                             </form>
                         </div>
-                        <a href="http://localhost:8080/wonho_free/UserServlet?cmd=login" class="login">로그인</a>
-                        <i class="menu-div-bar"></i>
-                        <a href="http://localhost:8080/wonho_free/UserServlet?cmd=signin" class="signin">회원가입</a>
+                        <div class="user-area">
+                            <a href="http://localhost:8080/wonho_free/UserServlet?cmd=login" class="login">로그인</a>
+                        	<i class="menu-div-bar"></i>
+                        	<a href="http://localhost:8080/wonho_free/UserServlet?cmd=signin" class="signin">회원가입</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </header>
         <section>
-            <div class="signin-title">
-                <h1>Signin for BOXFOLIO</h1>
+            <div class="banner">
+                <div class="wrap">
+                    <div class="banner-container">
+                        <h2>내 박스안의 포트폴리오 Boxfolio</h2>
+                        <p>나만의 포트폴리오를 구성하고 관리하자!</p>
+                    </div>
+                </div>
             </div>
         </section>
         <section>
             <div class="wrap">
-                <div class="signin-container">
-                    <form class="signin-form" action="http://localhost:8080/wonho_free/UserServlet?cmd=signin" method="post">
-                        <div class="id-area">
-                            <label for="input-id">아이디</label>
-                            <input class="input-id" type="text" name="id" autofocus required/>
+                <div class="contents-container">
+                    <ul class="contents">
+                        <li>
+                            <a href="#">
+                                <img id="content-drawup" src="resources/contract.png" alt="포트폴리오 작성하기"/>
+                                <p>포트폴리오 작성</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img id="content-check" src="resources/box.png" alt="내 포트폴리오 확인"/>
+                                <p>내 포트폴리오 확인</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img id="content-team" src="resources/people.png" alt="포트폴리오 작성하기"/>
+                                <p>대외활동 팀원 찾기</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img id="content-inquire" src="resources/question.png" alt="포트폴리오 작성하기"/>
+                                <p>1:1 질문</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+            </div>
+        </section>
+        <section>
+            <div class="wrap">
+                <div class="top-list-container">
+                    <h2>인기 대외활동</h2>
+                    <div class="top-list-inner">
+                        <i class="far fa-caret-square-left prev-btn"></i>
+                        <div class="top-list">
+                            
                         </div>
-                        <div class="pw-area">
-                            <label for="input-pw">비밀번호</label>
-                            <input class="input-pw" type="password" name="passwd" required/>
-                        </div>
-                        <div class="pwcheck-area">
-                            <label for="input-pwcheck">비밀번호 확인</label>
-                            <input class="input-pwcheck" type="password" name="passwdcheck" required/>
-                        </div>
-                        <div class="name-area">
-                            <label for="input-name">이름</label>
-                            <input class="input-name" type="text" name="username" required/>
-                        </div>
-                        <div class="birth-area">
-                            <label for="input-birth">생년월일</label>
-                            <div class="input-birth">
-                                <input class="input-year" type="text" name="year" required placeholder="년"/>
-                                <input class="input-month" type="text" name="month" required placeholder="월"/>
-                                <input class="input-day" type="text" name="day" required placeholder="일"/>
-                            </div>
-                        </div>
-                        <div class="email-area">
-                            <label for="input-email">이메일</label>
-                            <div class="input-email">
-                                <input class="input-email-id" type="text" name="email" required/>
-                                <span>@</span>
-                                <select name="address" id="address" required>
-                                    <option value="directly">직접입력</option>
-                                    <option value="naver">naver.com</option>
-                                    <option value="google">gmail.com</option>
-                                    <option value="kakao">kakao.com</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="signin-btn-area">
-                            <input class="signin-btn" type="submit" name="submit" value="회원가입"/>
-                        </div>
-                    </form>
+                        <i class="far fa-caret-square-right next-btn"></i>
+                    </div>
                 </div>
             </div>
         </section>

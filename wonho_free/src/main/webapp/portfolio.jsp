@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
     <head>
@@ -38,13 +40,13 @@
                     </h1>
                     <ul class="navi">
                         <li>
-                            <a href="http://127.0.0.1:8080/wonho_free/portfolio.html">포트폴리오</a>
+                            <a href="http://localhost:8080/wonho_free/MainServlet?cmd=portfolio">포트폴리오</a>
                         </li>
                         <li>
                             <a href="#">대외활동</a>
                         </li>
                         <li>
-                            <a href="http://127.0.0.1:8080/wonho_free/community.html">커뮤니티</a>
+                            <a href="http://localhost:8080/wonho_free/MainServlet?cmd=community">커뮤니티</a>
                         </li>
                         <li>
                             <a href="#">문의하기</a>
@@ -60,9 +62,19 @@
                                 </button>
                             </form>
                         </div>
-                        <a href="http://localhost:8080/wonho_free/UserServlet?cmd=login" class="login">로그인</a>
-                        <i class="menu-div-bar"></i>
-                        <a href="http://localhost:8080/wonho_free/UserServlet?cmd=signin" class="signin">회원가입</a>
+                        <% if (session.getAttribute("isLogined") == "true") { %>
+                        	<div class="user-area">
+                            	<i class="far fa-user-circle profile-icon"></i>
+                            	<p><%= session.getAttribute("username") + "님" %> </p>
+                            <a href="http://localhost:8080/wonho_free/UserServlet?cmd=logout" class="logout">로그아웃</a>
+                        	</div>
+                        <%} else { %>
+                        	<div class="user-area">
+                                <a href="http://localhost:8080/wonho_free/UserServlet?cmd=login" class="login">로그인</a>
+                                <i class="menu-div-bar"></i>
+                                <a href="http://localhost:8080/wonho_free/UserServlet?cmd=signin" class="signin">회원가입</a>
+                            </div>
+                        <%} %>
                     </div>
                 </div>
             </div>

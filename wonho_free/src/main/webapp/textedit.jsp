@@ -25,10 +25,12 @@
     <link rel="short icon" type="image/x-icon" href="resources/magic-box.png">
 
     <!--CSS-->
-    <link rel="stylesheet" href="resources/home.css">
+    <link rel="stylesheet" href="resources/textedit.css">
 
     <!--FontAwesome-->
     <script src="https://kit.fontawesome.com/5ac43742ba.js" crossorigin="anonymous"></script>
+
+    <script defer src="js/textedit.js"></script>
 </head>
 <body>
     <div class="root-wrap">
@@ -80,59 +82,68 @@
             </div>
         </header>
         <section>
-            <div class="banner">
-                <div class="wrap">
-                    <div class="banner-container">
-                        <h2>내 박스안의 포트폴리오 Boxfolio</h2>
-                        <p>나만의 포트폴리오를 구성하고 관리하자!</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section>
             <div class="wrap">
-                <div class="contents-container">
-                    <ul class="contents">
-                        <li>
-                            <a href="#">
-                                <img id="content-drawup" src="resources/contract.png" alt="포트폴리오 작성하기"/>
-                                <p>포트폴리오 작성</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img id="content-check" src="resources/box.png" alt="내 포트폴리오 확인"/>
-                                <p>내 포트폴리오 확인</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img id="content-team" src="resources/people.png" alt="포트폴리오 작성하기"/>
-                                <p>대외활동 팀원 찾기</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img id="content-inquire" src="resources/question.png" alt="포트폴리오 작성하기"/>
-                                <p>1:1 질문</p>
-                            </a>
-                        </li>
+                <div class="notice-title-container">
+                    <h2 class="notice-title">자유게시판</h2>
                     </ul>
                 </div>
-                
-            </div>
-        </section>
-        <section>
-            <div class="wrap">
-                <div class="top-list-container">
-                    <h2>인기 대외활동</h2>
-                    <div class="top-list-inner">
-                        <i class="far fa-caret-square-left prev-btn"></i>
-                        <div class="top-list">
-                            
-                        </div>
-                        <i class="far fa-caret-square-right next-btn"></i>
+                <div class="edit-head-container">
+                    <select name="category" id="category" required>
+                        <option value="free">자유</option>
+                        <option value="info">정보</option>
+                        <option value="anony">익명</option>
+                    </select>
+                </div>
+                <div class="edit-container">
+                    <textarea name="edit-title" id="edit-title" cols="30" placeholder="제목"></textarea>
+                    <div class="edit-tool">
+                        <button id="tool-bold">
+                            <i class="fas fa-bold"></i>
+                        </button>
+                        <button id="tool-italic">
+                            <i class="fas fa-italic"></i>
+                        </button>
+                        <button id="tool-under">
+                            <i class="fas fa-underline"></i>
+                        </button>
+                        <button id="tool-cancel">
+                            <i class="fas fa-strikethrough"></i>
+                        </button>
+                        <button id="tool-orderlist">
+                            <i class="fas fa-list-ol"></i>
+                        </button>
+                        <button id="tool-unorderlist">
+                            <i class="fas fa-list-ul"></i>
+                        </button>
+                        <button id="tool-image">
+                            <i class="far fa-image"></i>
+                        </button>
+                        <button id="tool-full">
+                            <i class="fas fa-align-justify"></i>
+                        </button>
+                        <button id="tool-left">
+                            <i class="fas fa-align-left"></i>
+                        </button>
+                        <button id="tool-center">
+                            <i class="fas fa-align-center"></i>
+                        </button>
+                        <button id="tool-right">
+                            <i class="fas fa-align-right"></i>
+                        </button>
+                        <button id="tool-undo">
+                            <i class="fas fa-undo"></i>
+                        </button>
+                        <button id="tool-redo">
+                            <i class="fas fa-redo"></i>
+                        </button>
                     </div>
+                    <div id="editor" contenteditable="true">
+                        <input id="image-select" type="file" accept="image/*">
+                    </div>
+                </div>
+                <div class="access-container">
+                    <button id="save-edit">저장</button>
+                    <button id="cancel-edit">취소</button>
                 </div>
             </div>
         </section>

@@ -66,20 +66,15 @@ public class UserDAO {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, id);
 			ResultSet rs = pstmt.executeQuery();
-			
-			if (rs.next()) {
-				vo = null;
+
+			while (rs.next()) {
+				vo.setId(rs.getString("id"));
+				vo.setPasswd(rs.getString("passwd"));
+				vo.setUsername(rs.getString("username"));
+				vo.setBirth(rs.getString("birth"));
+				vo.setEmail(rs.getString("email"));
 			}
-			else {
-				do {
-					vo.setId(rs.getString("id"));
-					vo.setPasswd(rs.getString("passwd"));
-					vo.setUsername(rs.getString("username"));
-					vo.setBirth(rs.getString("birth"));
-					vo.setEmail(rs.getString("email"));
-				} while (rs.next());
-			}
-			
+		
 		} catch(SQLException e) {
 			e.printStackTrace();
 		} finally {

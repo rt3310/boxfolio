@@ -32,6 +32,7 @@ li {
 }
 
 .root-wrap {
+    min-height: 100%;
     position: relative;
     padding-bottom: 100px;
 }
@@ -49,7 +50,7 @@ section {
 
 /* header */
 header {
-    background-color: #FFFFFF;
+    background-color: #fff;
     height: 80px;
     left: 0;
     top: 0;
@@ -97,7 +98,9 @@ header {
 }
 
 #query {
-    border: 1;
+    background-color: transparent;
+    border: 1px solid black;
+    border-radius: 2px;
     height: 20px;
     margin: 0;
     padding: 0;
@@ -121,11 +124,37 @@ header {
 }
 
 .menu-div-bar {
+    background-color: #e4e8eb;
     float: left;
-    width: 1px;
     height: 10px;
     margin: 3px 7px;
-    background-color: #e4e8eb;
+    width: 1px;
+}
+
+.user-area {
+    align-items: center;
+    display: flex;
+    flex-wrap: nowrap;
+    font-size: 18px;
+    height: 18px;
+    justify-content: space-between;
+}
+
+.profile-icon {
+    cursor: pointer;
+}
+
+.logout {
+    background-color: #fdb;
+    border-radius: 3px;
+    font-size: 12px;
+    margin-left: 2px;
+    padding: 2px 5px;
+}
+
+.user-area p {
+    font-size: 14px;
+    padding: 0 5px;
 }
 
 /* banner */

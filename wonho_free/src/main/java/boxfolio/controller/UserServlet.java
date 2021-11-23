@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import boxfolio.domain.UserVO;
 import boxfolio.persistence.UserDAO;
@@ -42,7 +43,16 @@ public class UserServlet extends HttpServlet {
 			view.forward(request, response);
 		}
 		else if (cmdReq.equals("signin")) {
-			response.sendRedirect("signin.html");
+			RequestDispatcher view = request.getRequestDispatcher("signin.jsp");
+			view.forward(request, response);
+		}
+		else if (cmdReq.equals("logout")) {
+			HttpSession session = request.getSession();
+			session.setAttribute("isLogined", "false");
+			session.removeAttribute("username");
+			
+			RequestDispatcher view = request.getRequestDispatcher("home.jsp");
+			view.forward(request, response);
 		}
 	}
 
@@ -68,7 +78,14 @@ public class UserServlet extends HttpServlet {
 			UserDAO userDAO = new UserDAO();
 			
 			if (userDAO.checkLoginInfo(userVO.getId(), userVO.getPasswd())) {
-				message = "success";
+				String username = userDAO.readUser(userVO.getId()).getUsername();
+				HttpSession session = request.getSession();
+				
+				session.setAttribute("isLogined", "true");
+				session.setAttribute("username", username);
+				
+				RequestDispatcher view = request.getRequestDispatcher("home.jsp");
+				view.forward(request, response);
 			}
 			else {
 				message = "아이디 또는 비밀번호가 잘못 입력되었습니다.";

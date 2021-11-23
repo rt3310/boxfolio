@@ -8,18 +8,19 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class MainServlet
+ * Servlet implementation class EditServlet
  */
-@WebServlet("/MainServlet")
-public class MainServlet extends HttpServlet {
+@WebServlet("/EditServlet")
+public class EditServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MainServlet() {
+    public EditServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,17 +36,16 @@ public class MainServlet extends HttpServlet {
 		String cmdReq = "";
 		cmdReq = request.getParameter("cmd");
 		
-		if (cmdReq.equals("home")) {
-			RequestDispatcher view = request.getRequestDispatcher("home.jsp");
-			view.forward(request, response);
-		}
-		else if (cmdReq.equals("portfolio")) {
-			RequestDispatcher view = request.getRequestDispatcher("portfolio.jsp");
-			view.forward(request, response);
-		}
-		else if (cmdReq.equals("community")) {
-			RequestDispatcher view = request.getRequestDispatcher("community.jsp");
-			view.forward(request, response);
+		if (cmdReq.equals("textedit")) {
+			HttpSession session = request.getSession();
+			
+			if (session.getAttribute("isLogined") == "true") {
+				RequestDispatcher view = request.getRequestDispatcher("textedit.jsp");
+				view.forward(request, response);
+			}
+			else {
+				
+			}
 		}
 	}
 

@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -23,12 +25,10 @@
     <link rel="short icon" type="image/x-icon" href="resources/magic-box.png">
 
     <!--CSS-->
-    <link rel="stylesheet" href="resources/textedit.css">
+    <link rel="stylesheet" href="resources/community.css">
 
     <!--FontAwesome-->
     <script src="https://kit.fontawesome.com/5ac43742ba.js" crossorigin="anonymous"></script>
-
-    <script defer src="js/textedit.js"></script>
 </head>
 <body>
     <div class="root-wrap">
@@ -40,13 +40,13 @@
                     </h1>
                     <ul class="navi">
                         <li>
-                            <a href="http://127.0.0.1:8080/wonho_free/portfolio.html">포트폴리오</a>
+                            <a href="http://localhost:8080/wonho_free/MainServlet?cmd=portfolio">포트폴리오</a>
                         </li>
                         <li>
                             <a href="#">대외활동</a>
                         </li>
                         <li>
-                            <a href="http://127.0.0.1:8080/wonho_free/community.html">커뮤니티</a>
+                            <a href="http://localhost:8080/wonho_free/MainServlet?cmd=community">커뮤니티</a>
                         </li>
                         <li>
                             <a href="#">문의하기</a>
@@ -62,9 +62,19 @@
                                 </button>
                             </form>
                         </div>
-                        <a href="http://localhost:8080/wonho_free/UserServlet?cmd=login" class="login">로그인</a>
-                        <i class="menu-div-bar"></i>
-                        <a href="http://localhost:8080/wonho_free/UserServlet?cmd=signin" class="signin">회원가입</a>
+                        <% if (session.getAttribute("isLogined") == "true") { %>
+                        	<div class="user-area">
+                            	<i class="far fa-user-circle profile-icon"></i>
+                            	<p><%= session.getAttribute("username") + "님" %> </p>
+                            <a href="http://localhost:8080/wonho_free/UserServlet?cmd=logout" class="logout">로그아웃</a>
+                        	</div>
+                        <%} else { %>
+                        	<div class="user-area">
+                                <a href="http://localhost:8080/wonho_free/UserServlet?cmd=login" class="login">로그인</a>
+                                <i class="menu-div-bar"></i>
+                                <a href="http://localhost:8080/wonho_free/UserServlet?cmd=signin" class="signin">회원가입</a>
+                            </div>
+                        <%} %>
                     </div>
                 </div>
             </div>
@@ -73,65 +83,58 @@
             <div class="wrap">
                 <div class="notice-title-container">
                     <h2 class="notice-title">자유게시판</h2>
+                    <ul class="notice-category">
+                        <li class="free-notice">
+                            <a href="#">자유</a>
+                        </li>
+                        <li class="info-notice">
+                            <a href="#">정보</a>
+                        </li>
+                        <li class="anony-notice">
+                            <a href="#">익명</a>
+                        </li>
                     </ul>
                 </div>
-                <div class="edit-head-container">
-                    <select name="category" id="category" required>
-                        <option value="free">자유</option>
-                        <option value="info">정보</option>
-                        <option value="anony">익명</option>
-                    </select>
-                </div>
-                <div class="edit-container">
-                    <textarea name="edit-title" id="edit-title" cols="30" placeholder="제목"></textarea>
-                    <div class="edit-tool">
-                        <button id="tool-bold">
-                            <i class="fas fa-bold"></i>
-                        </button>
-                        <button id="tool-italic">
-                            <i class="fas fa-italic"></i>
-                        </button>
-                        <button id="tool-under">
-                            <i class="fas fa-underline"></i>
-                        </button>
-                        <button id="tool-cancel">
-                            <i class="fas fa-strikethrough"></i>
-                        </button>
-                        <button id="tool-orderlist">
-                            <i class="fas fa-list-ol"></i>
-                        </button>
-                        <button id="tool-unorderlist">
-                            <i class="fas fa-list-ul"></i>
-                        </button>
-                        <button id="tool-image">
-                            <i class="far fa-image"></i>
-                        </button>
-                        <button id="tool-full">
-                            <i class="fas fa-align-justify"></i>
-                        </button>
-                        <button id="tool-left">
-                            <i class="fas fa-align-left"></i>
-                        </button>
-                        <button id="tool-center">
-                            <i class="fas fa-align-center"></i>
-                        </button>
-                        <button id="tool-right">
-                            <i class="fas fa-align-right"></i>
-                        </button>
-                        <button id="tool-undo">
-                            <i class="fas fa-undo"></i>
-                        </button>
-                        <button id="tool-redo">
-                            <i class="fas fa-redo"></i>
-                        </button>
-                    </div>
-                    <div id="editor" contenteditable="true">
-                        <input id="image-select" type="file" accept="image/*">
-                    </div>
+                <div class="notice-container">
+                    <table class="notice">
+                        <colgroup>
+                            <col style="width: 70px;">
+                            <col>
+                            <col style="width: 110px;">
+                            <col style="width: 100px;">
+                            <col style="width: 80px;">
+                            <col style="width: 60px;">
+                            <col style="width: 60px;">
+                        </colgroup>
+                        <thead>
+                            <tr class="notice-head">
+                                <th>#</th>
+                                <th>제목</th>
+                                <th>작성자</th>
+                                <th>작성일</th>
+                                <th>조회</th>
+                                <th>추천</th>
+                                <th>스크랩</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="td-num">1</td>
+                                <td class="td-title"><a href="#">히히히</a></td>
+                                <td class="td-name"><a href="#">서원호</a></td>
+                                <td class="td-date">21-11-22</td>
+                                <td class="td-view">1</td>
+                                <td class="td-like">1</td>
+                                <td class="td-scrap">2</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
                 <div class="access-container">
-                    <button id="save-edit">저장</button>
-                    <button id="cancel-edit">취소</button>
+                    <button class="write-notice" type="button" title="글쓰기">
+                        <i class="far fa-edit"></i>
+                        <a href="http://localhost:8080/wonho_free/EditServlet?cmd=textedit">글쓰기</a>
+                    </button>
                 </div>
             </div>
         </section>

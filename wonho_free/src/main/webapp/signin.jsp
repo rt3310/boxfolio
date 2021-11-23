@@ -25,7 +25,7 @@
     <link rel="short icon" type="image/x-icon" href="resources/magic-box.png">
 
     <!--CSS-->
-    <link rel="stylesheet" href="resources/login.css">
+    <link rel="stylesheet" href="resources/signin.css">
 
     <!--FontAwesome-->
     <script src="https://kit.fontawesome.com/5ac43742ba.js" crossorigin="anonymous"></script>
@@ -62,54 +62,71 @@
                                 </button>
                             </form>
                         </div>
-                        <a href="http://localhost:8080/wonho_free/UserServlet?cmd=login" class="login">로그인</a>
-                        <i class="menu-div-bar"></i>
-                        <a href="http://localhost:8080/wonho_free/UserServlet?cmd=signin" class="signin">회원가입</a>
+                        <% if (session.getAttribute("isLogined") == "true") { %>
+                        	<div class="user-area">
+                            	<i class="far fa-user-circle profile-icon"></i>
+                            	<p><%= session.getAttribute("username") + "님" %> </p>
+                            <a href="http://localhost:8080/wonho_free/UserServlet?cmd=logout" class="logout">로그아웃</a>
+                        	</div>
+                        <%} else { %>
+                        	<div class="user-area">
+                                <a href="http://localhost:8080/wonho_free/UserServlet?cmd=login" class="login">로그인</a>
+                                <i class="menu-div-bar"></i>
+                                <a href="http://localhost:8080/wonho_free/UserServlet?cmd=signin" class="signin">회원가입</a>
+                            </div>
+                        <%} %>
                     </div>
                 </div>
             </div>
         </header>
         <section>
-            <div class="login-title">
-                <h1>Login for BOXFOLIO</h1>
+            <div class="signin-title">
+                <h1>Signin for BOXFOLIO</h1>
             </div>
         </section>
         <section>
             <div class="wrap">
-                <div class="login-container">
-                    <form class="login-form" action="http://localhost:8080/wonho_free/UserServlet?cmd=login" method="post">
+                <div class="signin-container">
+                    <form class="signin-form" action="http://localhost:8080/wonho_free/UserServlet?cmd=signin" method="post">
                         <div class="id-area">
-                            <i class="fas fa-user id-icon"></i>
-                            <input type="text" name="id" autofocus required placeholder="아이디"/>
+                            <label for="input-id">아이디</label>
+                            <input class="input-id" type="text" name="id" autofocus required/>
                         </div>
                         <div class="pw-area">
-                            <i class="fas fa-key pw-icon"></i>
-                            <input type="password" name="passwd" required placeholder="비밀번호"/>
+                            <label for="input-pw">비밀번호</label>
+                            <input class="input-pw" type="password" name="passwd" required/>
                         </div>
-                        <div class="keep-login-area">
-                            <label for="keep-login" style="cursor: pointer;"><input id="keep-login" type="checkbox" name="keep-login" value="로그인 상태 유지"/>로그인 상태 유지</label>
+                        <div class="pwcheck-area">
+                            <label for="input-pwcheck">비밀번호 확인</label>
+                            <input class="input-pwcheck" type="password" name="passwdcheck" required/>
                         </div>
-                        <div class="keep-id-area">
-                            <label for="keep-id" style="cursor: pointer;"><input id="keep-id" type="checkbox" name="keep-id" value="아이디 유지"/>아이디 유지</label>
+                        <div class="name-area">
+                            <label for="input-name">이름</label>
+                            <input class="input-name" type="text" name="username" required/>
                         </div>
-                        <div class="login-message-area">
-                        	<%
-                        		String loginMsg = (String)request.getAttribute("loginError");
-                        		if (loginMsg == null) {
-                        			loginMsg = "";
-                        		}
-                        	%>
-                            <p><%=loginMsg %></p>
+                        <div class="birth-area">
+                            <label for="input-birth">생년월일</label>
+                            <div class="input-birth">
+                                <input class="input-year" type="text" name="year" required placeholder="년"/>
+                                <input class="input-month" type="text" name="month" required placeholder="월"/>
+                                <input class="input-day" type="text" name="day" required placeholder="일"/>
+                            </div>
                         </div>
-                        <div class="login-btn-area">
-                            <input class="login-btn" type="submit" name="submit" value="로그인"/>
+                        <div class="email-area">
+                            <label for="input-email">이메일</label>
+                            <div class="input-email">
+                                <input class="input-email-id" type="text" name="email" required/>
+                                <span>@</span>
+                                <select name="address" id="address" required>
+                                    <option value="directly">직접입력</option>
+                                    <option value="naver">naver.com</option>
+                                    <option value="google">gmail.com</option>
+                                    <option value="kakao">kakao.com</option>
+                                </select>
+                            </div>
                         </div>
-                        <div class="login-manage-area">
-                            <a href="#" class="seek-id">아이디 찾기</a>
-                            <i class="menu-div-bar"></i>
-                            <a href="#" class="seek-pw">비밀번호 찾기</a>
-                            <i class="menu-div-bar"></i>
-                            <a href="http://127.0.0.1:8080/wonho_free/signin.html" class="signin">회원가입</a>
+                        <div class="signin-btn-area">
+                            <input class="signin-btn" type="submit" name="submit" value="회원가입"/>
                         </div>
                     </form>
                 </div>
@@ -133,4 +150,4 @@
         </footer>
     </div>
 </body>
-</html> 
+</html>

@@ -133,6 +133,32 @@ header {
     width: 1px;
 }
 
+.user-area {
+    align-items: center;
+    display: flex;
+    flex-wrap: nowrap;
+    font-size: 18px;
+    height: 18px;
+    justify-content: space-between;
+}
+
+.profile-icon {
+    cursor: pointer;
+}
+
+.logout {
+    background-color: #fdb;
+    border-radius: 3px;
+    font-size: 12px;
+    margin-left: 2px;
+    padding: 2px 5px;
+}
+
+.user-area p {
+    font-size: 14px;
+    padding: 0 5px;
+}
+
 /* notice-title */
 .notice-title-container {
     background-color: #fdb;
