@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -60,9 +62,9 @@
                                 </button>
                             </form>
                         </div>
-                        <a href="http://localhost:8080/wonho_free/userServlet?cmd=login" class="login">로그인</a>
+                        <a href="http://localhost:8080/wonho_free/UserServlet?cmd=login" class="login">로그인</a>
                         <i class="menu-div-bar"></i>
-                        <a href="http://localhost:8080/wonho_free/userServlet?cmd=signin" class="signin">회원가입</a>
+                        <a href="http://localhost:8080/wonho_free/UserServlet?cmd=signin" class="signin">회원가입</a>
                     </div>
                 </div>
             </div>
@@ -75,7 +77,7 @@
         <section>
             <div class="wrap">
                 <div class="login-container">
-                    <form class="login-form" action="#" method="post">
+                    <form class="login-form" action="http://localhost:8080/wonho_free/UserServlet?cmd=login" method="post">
                         <div class="id-area">
                             <i class="fas fa-user id-icon"></i>
                             <input type="text" name="id" autofocus required placeholder="아이디"/>
@@ -89,6 +91,9 @@
                         </div>
                         <div class="keep-id-area">
                             <label for="keep-id" style="cursor: pointer;"><input id="keep-id" type="checkbox" name="keep-id" value="아이디 유지"/>아이디 유지</label>
+                        </div>
+                        <div class="login-message">
+                            <p><%=request.getAttribute("loginError") %></p>
                         </div>
                         <div class="login-btn-area">
                             <input class="login-btn" type="submit" name="submit" value="로그인"/>

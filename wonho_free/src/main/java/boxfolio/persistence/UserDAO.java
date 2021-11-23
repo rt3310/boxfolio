@@ -58,7 +58,7 @@ public class UserDAO {
 		return true;
 	}
 	
-	public UserVO read(String id) {
+	public UserVO readUser(String id) {
 		connect();
 		String sql = "select * from user where id=?";
 		UserVO vo = new UserVO();
@@ -67,13 +67,19 @@ public class UserDAO {
 			pstmt.setString(1, id);
 			ResultSet rs = pstmt.executeQuery();
 			
-			while (rs.next()) {
-				vo.setId(rs.getString("id"));
-				vo.setPasswd(rs.getString("passwd"));
-				vo.setUsername(rs.getString("username"));
-				vo.setBirth(rs.getString("birth"));
-				vo.setEmail(rs.getString("email"));
+			if (rs.next()) {
+				vo = null;
 			}
+			else {
+				do {
+					vo.setId(rs.getString("id"));
+					vo.setPasswd(rs.getString("passwd"));
+					vo.setUsername(rs.getString("username"));
+					vo.setBirth(rs.getString("birth"));
+					vo.setEmail(rs.getString("email"));
+				} while (rs.next());
+			}
+			
 		} catch(SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -82,7 +88,30 @@ public class UserDAO {
 		return vo;
 	}
 	
-	public boolean update(UserVO vo) {
+	public boolean checkLoginInfo(String id, String passwd) {
+		connect();
+		String sql = "select * from user where id=?";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			ResultSet rs = pstmt.executeQuery();
+			
+			while (rs.next()) {
+				if (passwd.equals(rs.getString("passwd"))) {
+					return true;
+				}
+			}
+		} catch(SQLException e) {
+			e.printStackTrace();
+			return false;
+		} finally {
+			disconnect();
+		}
+		return false;
+	}
+	
+	public boolean updateUser(UserVO vo) {
 		connect();
 		String sql = "update user set passwd=?, username=?, birth=?, email=? where id=?";
 		try {
