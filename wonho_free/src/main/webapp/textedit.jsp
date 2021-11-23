@@ -136,6 +136,24 @@
                         <button id="tool-redo">
                             <i class="fas fa-redo"></i>
                         </button>
+                        <select id="tool-fontsize">
+                        	<option value="">폰트 사이즈</option>
+                        	<option value="1">10px</option>
+                        	<option value="2">13px</option>
+                        	<option value="3">16px</option>
+                        	<option value="4">18px</option>
+                        	<option value="5">24px</option>
+                        	<option value="6">32px</option>
+                        	<option value="7">48px</option>
+                        </select>
+                        <select id="tool-font">
+                        	<option value="">폰트</option>
+                        	<option value="Black Han Sans">Black Han Sans</option>
+                        	<option value="Noto Sans KR">Noto Sans KR</option>
+                        	<option value="Nanum Gothic">Nanum Gothic</option>
+                        	<option value="Nanum Myeongjo">Nanum Myeongjo</option>
+                        	<option value="Nanum Pen Script">Nanum Pen Script</option>
+                        </select>
                     </div>
                     <div id="editor" contenteditable="true">
                         <input id="image-select" type="file" accept="image/*">

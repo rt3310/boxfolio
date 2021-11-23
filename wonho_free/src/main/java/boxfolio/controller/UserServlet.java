@@ -49,7 +49,8 @@ public class UserServlet extends HttpServlet {
 		else if (cmdReq.equals("logout")) {
 			HttpSession session = request.getSession();
 			session.setAttribute("isLogined", "false");
-			session.removeAttribute("username");
+			session.removeAttribute("userId");
+			session.removeAttribute("userName");
 			
 			RequestDispatcher view = request.getRequestDispatcher("home.jsp");
 			view.forward(request, response);
@@ -72,17 +73,18 @@ public class UserServlet extends HttpServlet {
 		if (cmdReq.equals("login")) {
 			UserVO userVO = new UserVO();
 			
-			userVO.setId(request.getParameter("id"));
-			userVO.setPasswd(request.getParameter("passwd"));
+			userVO.setUserId(request.getParameter("id"));
+			userVO.setUserPasswd(request.getParameter("passwd"));
 			
 			UserDAO userDAO = new UserDAO();
 			
-			if (userDAO.checkLoginInfo(userVO.getId(), userVO.getPasswd())) {
-				String username = userDAO.readUser(userVO.getId()).getUsername();
+			if (userDAO.checkLoginInfo(userVO.getUserId(), userVO.getUserPasswd())) {
+				String username = userDAO.readUser(userVO.getUserId()).getUserName();
 				HttpSession session = request.getSession();
 				
 				session.setAttribute("isLogined", "true");
-				session.setAttribute("username", username);
+				session.setAttribute("userId", userVO.getUserId());
+				session.setAttribute("userName", username);
 				
 				RequestDispatcher view = request.getRequestDispatcher("home.jsp");
 				view.forward(request, response);

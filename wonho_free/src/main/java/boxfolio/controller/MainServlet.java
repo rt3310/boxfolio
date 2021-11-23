@@ -1,6 +1,7 @@
 package boxfolio.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,6 +9,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import boxfolio.domain.PostVO;
+import boxfolio.persistence.PostDAO;
 
 /**
  * Servlet implementation class MainServlet
@@ -44,6 +48,10 @@ public class MainServlet extends HttpServlet {
 			view.forward(request, response);
 		}
 		else if (cmdReq.equals("community")) {
+			PostDAO pdao = new PostDAO();
+			ArrayList<PostVO> postList = pdao.getPostList();
+			request.setAttribute("postList", postList);
+			
 			RequestDispatcher view = request.getRequestDispatcher("community.jsp");
 			view.forward(request, response);
 		}

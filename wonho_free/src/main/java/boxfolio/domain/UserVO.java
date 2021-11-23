@@ -1,40 +1,41 @@
 package boxfolio.domain;
 
 public class UserVO {
-	private String id;
-	private String passwd;
-	private String username;
-	private String birth;
-	private String email;
+	private String userId;
+	private String userPasswd;
+	private String userName;
+	private String userBirth;
+	private String userEmail;
 	
-	public String getId() {
-		return id;
+	public String getUserId() {
+		return userId;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
-	public String getPasswd() {
-		return passwd;
+	public String getUserPasswd() {
+		return userPasswd;
 	}
-	public void setPasswd(String passwd) {
-		this.passwd = passwd;
+	public void setUserPasswd(String userPasswd) {
+		this.userPasswd = userPasswd;
 	}
-	public String getUsername() {
-		return username;
+	public String getUserName() {
+		return userName;
 	}
-	public void setUsername(String username) {
-		this.username = username;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
-	public String getBirth() {
-		return birth;
+	public String getUserBirth() {
+		return userBirth;
 	}
-	public void setBirth(String birth) {
-		this.birth = birth;
+	public void setUserBirth(String userBirth) {
+		this.userBirth = userBirth;
 	}
-	public String getEmail() {
-		return email;
+	public String getUserEmail() {
+		return userEmail;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+	public void setUserEmail(String userEmail) {
+		this.userEmail = userEmail;
 	}
+
 }

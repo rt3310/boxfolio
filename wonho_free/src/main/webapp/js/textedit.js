@@ -13,6 +13,10 @@ const btnCenter = document.getElementById('tool-center');
 const btnRight = document.getElementById('tool-right');
 const btnUndo = document.getElementById('tool-undo');
 const btnRedo = document.getElementById('tool-redo');
+const fontSizeSelector = document.getElementById('tool-fontsize');
+const fontNameSelector = document.getElementById('tool-font');
+
+const fontSizeList = [10, 13, 16, 18, 24, 32, 48];
 
 btnBold.addEventListener('click', function() {
     setStyle('bold');
@@ -73,6 +77,14 @@ imageSelector.addEventListener('change', function (e) {
     }
 });
 
+fontSizeSelector.addEventListener('change', function() {
+    changeFontSize(this.value);
+});
+
+fontNameSelector.addEventListener('change', function() {
+    changeFontName(this.value);
+});
+
 editor.addEventListener('keydown', function() {
     checkStyle();
 });
@@ -88,6 +100,48 @@ function insertImageDate(file) {
         document.execCommand('insertImage', false, `${reader.result}`);
     });
     reader.readAsDataURL(file);
+}
+
+function changeFontName(name) {
+    document.execCommand('fontName', false, name);
+    focusEditor();
+}
+
+function changeFontSize(size) {
+    document.execCommand('fontSize', false, size);
+    focusEditor();
+}
+
+function getComputedStyleProperty(el, propName) {
+    if (window.getComputedStyle) {
+        return window.getComputedStyle(el, null)[propName];
+    } else if (el.currentStyle) {
+        return el.currentStyle[propName];
+    }
+}
+
+function reportFont() {
+    let containerEl, sel;
+    if (window.getSelection) {
+        sel = window.getSelection();
+        if (sel.rangeCount) {
+            containerEl = sel.getRangeAt(0).commonAncestorContainer;
+            if (containerEl.nodeType === 3) {
+                containerEl = containerEl.parentNode;
+            }
+        }
+        else if ((sel = document.selection) && sel.type !== 'Control') {
+            containerEl = sel.createRange().parentElement();
+        }
+
+        if (containerEl) {
+            const fontSize = getComputedStyleProperty(containerEl, 'fontSize');
+            const fontName = getComputedStyleProperty(containerEl, 'fontFamily');
+            const size = parseInt(fontSize.replace('px', ''));
+            fontSizeSelector.value = fontSizeList.indexOf(size) + 1;
+            fontNameSelector.value = fontName.replaceAll('"', '')
+        }
+    }
 }
 
 function focusEditor() {
@@ -151,8 +205,41 @@ function checkStyle() {
     } else {
         btnRight.classList.remove('active');
     }
+    reportFont();
 }
 
 function isStyle(style) {
     return document.queryCommandState(style);
+}
+
+const saveEdit = document.getElementById('save-edit');
+
+saveEdit.addEventListener('click', function() {
+    const urlToSendForBoard = "http://localhost:8080/wonho_free/EditServlet?cmd=uploadBoard";
+
+    const title = document.getElementById('edit-title');
+    var content = document.getElementById('editor');
+    const titleText = title.value;
+    const contentText = content.innerHTML.replace(`<input id="image-select" type="file" accept="image/*">`, '');
+
+    const params = {'title':titleText, 'content':contentText};
+    sendPost(urlToSendForBoard, params);
+});
+
+// 데이터 post 전송
+function sendPost(url, params) {
+    var form = document.createElement('form');
+    form.setAttribute('method', 'post');
+    form.setAttribute('action', url);
+    document.characterSet = "utf-8";
+    
+    for (var key in params) {
+        var hiddenField = document.createElement('input');
+        hiddenField.setAttribute('type', 'hidden');
+        hiddenField.setAttribute('name', key);
+        hiddenField.setAttribute('value', params[key]);
+        form.appendChild(hiddenField);
+    }
+    document.body.appendChild(form);
+    form.submit();
 }

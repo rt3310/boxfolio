@@ -220,6 +220,14 @@ header {
     color: #35f;
 }
 
+.edit-tool select {
+    background-color: transparent;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    margin: 0 5px;
+    padding: 10px 5px;
+}
+
 #editor {
     background-color: #fafafa;
     border-radius: 3px;

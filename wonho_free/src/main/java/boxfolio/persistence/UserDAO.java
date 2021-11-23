@@ -44,11 +44,12 @@ public class UserDAO {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, vo.getId());
-			pstmt.setString(2, vo.getPasswd());
-			pstmt.setString(3, vo.getUsername());
-			pstmt.setString(4, vo.getBirth());
-			pstmt.setString(5, vo.getEmail());
+			pstmt.setString(1, vo.getUserId());
+			pstmt.setString(2, vo.getUserPasswd());
+			pstmt.setString(3, vo.getUserName());
+			pstmt.setString(4, vo.getUserBirth());
+			pstmt.setString(5, vo.getUserEmail());
+			pstmt.executeUpdate();
 		} catch(SQLException e) {
 			e.printStackTrace();
 			return false;
@@ -68,11 +69,11 @@ public class UserDAO {
 			ResultSet rs = pstmt.executeQuery();
 
 			while (rs.next()) {
-				vo.setId(rs.getString("id"));
-				vo.setPasswd(rs.getString("passwd"));
-				vo.setUsername(rs.getString("username"));
-				vo.setBirth(rs.getString("birth"));
-				vo.setEmail(rs.getString("email"));
+				vo.setUserId(rs.getString("id"));
+				vo.setUserPasswd(rs.getString("passwd"));
+				vo.setUserName(rs.getString("username"));
+				vo.setUserBirth(rs.getString("birth"));
+				vo.setUserEmail(rs.getString("email"));
 			}
 		
 		} catch(SQLException e) {
@@ -111,11 +112,11 @@ public class UserDAO {
 		String sql = "update user set passwd=?, username=?, birth=?, email=? where id=?";
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, vo.getPasswd());
-			pstmt.setString(2, vo.getUsername());
-			pstmt.setString(3, vo.getBirth());
-			pstmt.setString(4, vo.getEmail());
-			pstmt.setString(5, vo.getId());
+			pstmt.setString(1, vo.getUserPasswd());
+			pstmt.setString(2, vo.getUserName());
+			pstmt.setString(3, vo.getUserBirth());
+			pstmt.setString(4, vo.getUserEmail());
+			pstmt.setString(5, vo.getUserId());
 			pstmt.executeUpdate();
 		} catch(SQLException e) {
 			e.printStackTrace();
@@ -137,11 +138,11 @@ public class UserDAO {
 			
 			while (rs.next()) {
 				UserVO vo = new UserVO();
-				vo.setId(rs.getString("id"));
-				vo.setPasswd(rs.getString("passwd"));
-				vo.setUsername(rs.getString("username"));
-				vo.setBirth(rs.getString("birth"));
-				vo.setEmail(rs.getString("email"));
+				vo.setUserId(rs.getString("id"));
+				vo.setUserPasswd(rs.getString("passwd"));
+				vo.setUserName(rs.getString("username"));
+				vo.setUserBirth(rs.getString("birth"));
+				vo.setUserEmail(rs.getString("email"));
 				userList.add(vo);
 			}
 			rs.close();

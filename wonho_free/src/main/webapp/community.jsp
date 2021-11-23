@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="boxfolio.domain.*, java.util.List"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -118,15 +118,22 @@
                             </tr>
                         </thead>
                         <tbody>
+                        	<%
+                        		List<PostVO> postList = (List<PostVO>)request.getAttribute("postList");
+                        		for (PostVO vo : postList) {
+                        	%>
                             <tr>
-                                <td class="td-num">1</td>
-                                <td class="td-title"><a href="#">히히히</a></td>
-                                <td class="td-name"><a href="#">서원호</a></td>
-                                <td class="td-date">21-11-22</td>
-                                <td class="td-view">1</td>
-                                <td class="td-like">1</td>
-                                <td class="td-scrap">2</td>
+                                <td class="td-num"><%=vo.getPostId() %></td>
+                                <td class="td-title"><a href="#"><%=vo.getPostTitle() %></a></td>
+                                <td class="td-name"><a href="#"><%=vo.getUserName() %></a></td>
+                                <td class="td-date"><%=vo.getPostCreated() %></td>
+                                <td class="td-view"><%=vo.getpostView() %></td>
+                                <td class="td-like"><%=vo.getPostLike() %></td>
+                                <td class="td-scrap"><%=vo.getPostScrap() %></td>
                             </tr>
+                            <%
+                        		}
+                            %>
                         </tbody>
                     </table>
                 </div>
