@@ -55,6 +55,26 @@ public class EditServlet extends HttpServlet {
 				writer.println("<script>alert('로그인 후 이용해주세요'); location.href='http://localhost:8080/wonho_free/login.jsp'</script>");
 			}
 		}
+		else if (cmdReq.equals("inBoard")) {
+			String title = request.getParameter("title");
+			String name = request.getParameter("name");
+			
+			HttpSession session = request.getSession();
+			PostDAO pdao = new PostDAO();
+			PostVO pvo = new PostVO();
+			
+			if (session.getAttribute("isLogined") == "true") {
+				pvo = pdao.searchPostByTitleAndName(title, name);
+				
+				request.setAttribute("board", pvo);
+				RequestDispatcher view = request.getRequestDispatcher("board.jsp");
+				view.forward(request, response);
+			}
+			else {
+				PrintWriter writer = response.getWriter();
+				writer.println("<script>alert('로그인 후 이용해주세요'); location.href='http://localhost:8080/wonho_free/login.jsp'</script>");
+			}
+		}
 	}
 
 	/**

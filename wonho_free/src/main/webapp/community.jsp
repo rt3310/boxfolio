@@ -65,7 +65,7 @@
                         <% if (session.getAttribute("isLogined") == "true") { %>
                         	<div class="user-area">
                             	<i class="far fa-user-circle profile-icon"></i>
-                            	<p><%= session.getAttribute("username") + "님" %> </p>
+                            	<p><%= session.getAttribute("userName") + "님" %> </p>
                             <a href="http://localhost:8080/wonho_free/UserServlet?cmd=logout" class="logout">로그아웃</a>
                         	</div>
                         <%} else { %>
@@ -124,7 +124,7 @@
                         	%>
                             <tr>
                                 <td class="td-num"><%=vo.getPostId() %></td>
-                                <td class="td-title"><a href="#"><%=vo.getPostTitle() %></a></td>
+                                <td class="td-title"><a href="http://localhost:8080/wonho_free/EditServlet?cmd=inBoard&title=<%=vo.getPostTitle()%>&name=<%=vo.getUserName()%>"><%=vo.getPostTitle() %></a></td>
                                 <td class="td-name"><a href="#"><%=vo.getUserName() %></a></td>
                                 <td class="td-date"><%=vo.getPostCreated() %></td>
                                 <td class="td-view"><%=vo.getpostViews() %></td>

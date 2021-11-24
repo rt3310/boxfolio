@@ -63,14 +63,14 @@ public class PostDAO {
 		return true;
 	}
 	
-	public PostVO searchPostByIdAndTitle(String userId, String title) {
+	public PostVO searchPostByTitleAndName(String title, String userName) {
 		connect();
-		String sql = "select * from post where user_id=? and title=?";
+		String sql = "select * from post where title=? and user_name=?";
 		PostVO pvo = new PostVO();
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, userId);
-			pstmt.setString(2, title);
+			pstmt.setString(1, title);
+			pstmt.setString(2, userName);
 			ResultSet rs = pstmt.executeQuery();
 
 			while (rs.next()) {

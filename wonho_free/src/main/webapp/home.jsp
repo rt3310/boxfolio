@@ -65,7 +65,7 @@
                         <% if (session.getAttribute("isLogined") == "true") { %>
                         	<div class="user-area">
                             	<i class="far fa-user-circle profile-icon"></i>
-                            	<p><%= session.getAttribute("username") + "님" %> </p>
+                            	<p><%= session.getAttribute("userName") + "님" %> </p>
                             <a href="http://localhost:8080/wonho_free/UserServlet?cmd=logout" class="logout">로그아웃</a>
                         	</div>
                         <%} else { %>

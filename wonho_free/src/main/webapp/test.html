@@ -1,5 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -25,7 +23,7 @@
     <link rel="short icon" type="image/x-icon" href="resources/magic-box.png">
 
     <!--CSS-->
-    <link rel="stylesheet" href="resources/textedit.css">
+    <link rel="stylesheet" href="resources/board.css">
 
     <!--FontAwesome-->
     <script src="https://kit.fontawesome.com/5ac43742ba.js" crossorigin="anonymous"></script>
@@ -67,7 +65,7 @@
                         <% if (session.getAttribute("isLogined") == "true") { %>
                         	<div class="user-area">
                             	<i class="far fa-user-circle profile-icon"></i>
-                            	<p><%= session.getAttribute("username") + "님" %> </p>
+                            	<p><%= session.getAttribute("userName") + "님" %> </p>
                             <a href="http://localhost:8080/wonho_free/UserServlet?cmd=logout" class="logout">로그아웃</a>
                         	</div>
                         <%} else { %>
@@ -87,81 +85,58 @@
                     <h2 class="notice-title">자유게시판</h2>
                     </ul>
                 </div>
-                <div class="edit-head-container">
-                    <select name="category" id="category" required>
-                        <option value="free">자유</option>
-                        <option value="info">정보</option>
-                        <option value="anony">익명</option>
-                    </select>
-                </div>
-                <div class="edit-container">
-                    <textarea name="edit-title" id="edit-title" cols="30" placeholder="제목"></textarea>
-                    <div class="edit-tool">
-                        <button id="tool-bold">
-                            <i class="fas fa-bold"></i>
-                        </button>
-                        <button id="tool-italic">
-                            <i class="fas fa-italic"></i>
-                        </button>
-                        <button id="tool-under">
-                            <i class="fas fa-underline"></i>
-                        </button>
-                        <button id="tool-cancel">
-                            <i class="fas fa-strikethrough"></i>
-                        </button>
-                        <button id="tool-orderlist">
-                            <i class="fas fa-list-ol"></i>
-                        </button>
-                        <button id="tool-unorderlist">
-                            <i class="fas fa-list-ul"></i>
-                        </button>
-                        <button id="tool-image">
-                            <i class="far fa-image"></i>
-                        </button>
-                        <button id="tool-full">
-                            <i class="fas fa-align-justify"></i>
-                        </button>
-                        <button id="tool-left">
-                            <i class="fas fa-align-left"></i>
-                        </button>
-                        <button id="tool-center">
-                            <i class="fas fa-align-center"></i>
-                        </button>
-                        <button id="tool-right">
-                            <i class="fas fa-align-right"></i>
-                        </button>
-                        <button id="tool-undo">
-                            <i class="fas fa-undo"></i>
-                        </button>
-                        <button id="tool-redo">
-                            <i class="fas fa-redo"></i>
-                        </button>
-                        <select id="tool-fontsize">
-                        	<option value="">폰트 사이즈</option>
-                        	<option value="1">10px</option>
-                        	<option value="2">13px</option>
-                        	<option value="3">16px</option>
-                        	<option value="4">18px</option>
-                        	<option value="5">24px</option>
-                        	<option value="6">32px</option>
-                        	<option value="7">48px</option>
-                        </select>
-                        <select id="tool-font">
-                        	<option value="">폰트</option>
-                        	<option value="Black Han Sans">Black Han Sans</option>
-                        	<option value="Noto Sans KR">Noto Sans KR</option>
-                        	<option value="Nanum Gothic">Nanum Gothic</option>
-                        	<option value="Nanum Myeongjo">Nanum Myeongjo</option>
-                        	<option value="Nanum Pen Script">Nanum Pen Script</option>
-                        </select>
+                <div class="board-container">
+                    <div id="board-head">
+                        <div class="board-title">
+                            <h2>제목</h2>
+                        </div>
+                        <div class="board-user">
+                            <i class="far fa-user-circle profile-icon"></i>
+                            <div class="board-info">
+                                <p class="user-name">
+                                    서원호
+                                </p>
+                                <p class="created-date">
+                                    2021.11.24 21:54:04
+                                </p>
+                            </div>
+                        </div>
                     </div>
-                    <div id="editor" contenteditable="true">
+                    <div id="board">
                         <input id="image-select" type="file" accept="image/*">
                     </div>
                 </div>
-                <div class="access-container">
-                    <button id="save-edit">저장</button>
-                    <button id="cancel-edit">취소</button>
+                <div class="reply-container">
+                    <div class="board-action">
+                        <a href="#" role="button" class="board-like">
+                            <i class="far fa-star"></i>
+                            <p>추천 0</p>
+                        </a>
+                        <a href="#" role="button" class="board-scrap">
+                            <i class="far fa-bookmark"></i>
+                            <p>스크랩 0</p>
+                        </a>
+                        <a href="#" role="button" class="board-reply">
+                            <i class="far fa-comment-dots"></i>
+                            <p>댓글 0</p>
+                        </a>
+                    </div>
+                    <div class="reply-area">
+                        <div class="reply">
+                            <div class="reply-info">
+                                <span class="reply-user">서원호</span>
+                                <span class="reply-created">21.11.24 23:40</span>
+                            </div>                            
+                            <div class="reply-content">내용이에용</div>
+                        </div>
+                        <div class="reply-input">
+                            <p class="reply-user">서원호</p>
+                            <textarea name="reply" id="reply-content" rows="1" placeholder="댓글을 입력하세요"></textarea>
+                            <div class="reply-manage">
+                                <a href="#" role="button" id="reply-btn">등록</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
