@@ -8,9 +8,9 @@ public class PostVO {
 	private String postCreated;
 	private String userId;
 	private String userName;
-	private int postView;
-	private int postLike;
-	private int postScrap;
+	private int postViews;
+	private int postLikes;
+	private int postScraps;
 	
 	public int getPostId() {
 		return postId;
@@ -48,23 +48,23 @@ public class PostVO {
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-	public int getpostView() {
-		return postView;
+	public int getpostViews() {
+		return postViews;
 	}
-	public void setpostView(int postView) {
-		this.postView = postView;
+	public void setpostViews(int postViews) {
+		this.postViews = postViews;
 	}
-	public int getPostLike() {
-		return postLike;
+	public int getPostLikes() {
+		return postLikes;
 	}
-	public void setPostLike(int postLike) {
-		this.postLike = postLike;
+	public void setPostLikes(int postLikes) {
+		this.postLikes = postLikes;
 	}
-	public int getPostScrap() {
-		return postScrap;
+	public int getPostScraps() {
+		return postScraps;
 	}
-	public void setPostScrap(int postScrap) {
-		this.postScrap = postScrap;
+	public void setPostScraps(int postScraps) {
+		this.postScraps = postScraps;
 	}
 
 }

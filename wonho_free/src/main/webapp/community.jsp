@@ -127,9 +127,9 @@
                                 <td class="td-title"><a href="#"><%=vo.getPostTitle() %></a></td>
                                 <td class="td-name"><a href="#"><%=vo.getUserName() %></a></td>
                                 <td class="td-date"><%=vo.getPostCreated() %></td>
-                                <td class="td-view"><%=vo.getpostView() %></td>
-                                <td class="td-like"><%=vo.getPostLike() %></td>
-                                <td class="td-scrap"><%=vo.getPostScrap() %></td>
+                                <td class="td-view"><%=vo.getpostViews() %></td>
+                                <td class="td-like"><%=vo.getPostLikes() %></td>
+                                <td class="td-scrap"><%=vo.getPostScraps() %></td>
                             </tr>
                             <%
                         		}

@@ -79,9 +79,9 @@ public class PostDAO {
 				pvo.setPostCreated(rs.getString("created"));
 				pvo.setUserId(rs.getString("user_id"));
 				pvo.setUserName(rs.getString("user_name"));
-				pvo.setpostView(rs.getInt("view"));
-				pvo.setPostLike(rs.getInt("like"));
-				pvo.setPostScrap(rs.getInt("scrap"));
+				pvo.setpostViews(rs.getInt("views"));
+				pvo.setPostLikes(rs.getInt("likes"));
+				pvo.setPostScraps(rs.getInt("scraps"));
 			}
 		
 		} catch(SQLException e) {
@@ -109,9 +109,9 @@ public class PostDAO {
 				pvo.setPostCreated(rs.getString("created"));
 				pvo.setUserId(rs.getString("user_id"));
 				pvo.setUserName(rs.getString("user_name"));
-				pvo.setpostView(rs.getInt("view"));
-				pvo.setPostLike(rs.getInt("like"));
-				pvo.setPostScrap(rs.getInt("scrap"));
+				pvo.setpostViews(rs.getInt("views"));
+				pvo.setPostLikes(rs.getInt("likes"));
+				pvo.setPostScraps(rs.getInt("scraps"));
 				postList.add(pvo);
 			}
 			rs.close();
