@@ -12,11 +12,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import boxfolio.domain.LikeVO;
 import boxfolio.domain.PostVO;
 import boxfolio.domain.ReplyVO;
+import boxfolio.domain.ScrapVO;
 import boxfolio.domain.UserVO;
+import boxfolio.persistence.LikeDAO;
 import boxfolio.persistence.PostDAO;
 import boxfolio.persistence.ReplyDAO;
+import boxfolio.persistence.ScrapDAO;
 import boxfolio.persistence.UserDAO;
 
 /**
@@ -45,9 +49,9 @@ public class EditServlet extends HttpServlet {
 		String cmdReq = "";
 		cmdReq = request.getParameter("cmd");
 		
+		HttpSession session = request.getSession();
+		
 		if (cmdReq.equals("textedit")) {
-			HttpSession session = request.getSession();
-			
 			if (session.getAttribute("isLogined") == "true") {
 				RequestDispatcher view = request.getRequestDispatcher("textedit.jsp");
 				view.forward(request, response);
@@ -58,19 +62,68 @@ public class EditServlet extends HttpServlet {
 			}
 		}
 		else if (cmdReq.equals("inBoard")) {
-			int id = Integer.parseInt(request.getParameter("id")); 
-			
-			HttpSession session = request.getSession();
+			int postId = Integer.parseInt(request.getParameter("postId"));
+			String act = request.getParameter("act");
 			
 			PostDAO pdao = new PostDAO();
 			ReplyDAO rdao = new ReplyDAO();
+			LikeDAO ldao = new LikeDAO();
+			ScrapDAO sdao = new ScrapDAO();
+			
 			PostVO pvo = new PostVO();
+			LikeVO lvo = new LikeVO();
+			ScrapVO svo = new ScrapVO();
 			ArrayList<ReplyVO> replyList = new ArrayList<ReplyVO>();
+
 			
 			if (session.getAttribute("isLogined") == "true") {
-				pvo = pdao.searchPostById(id);
-				replyList = rdao.searchReplyListByPostId(id);
+				pvo = pdao.searchPostById(postId);
+				replyList = rdao.searchReplyListByPostId(postId);
 				
+				if (act.equals("atCommunity")) { // 커뮤니티에서 게시판 입장 시
+					pvo.setpostViews(pvo.getpostViews() + 1);
+					pdao.updatePostViews(pvo);
+				}
+				else if (act.equals("likes")) { // likes 처리 구문
+					lvo = ldao.searchLikeByUserIdAndPostId(session.getAttribute("userId").toString(), postId);
+					
+					if (lvo.getLikeId() == 0) {
+						lvo.setUserId(session.getAttribute("userId").toString());
+						lvo.setPostId(postId);
+						
+						if (ldao.addLike(lvo)) {
+							pvo.setPostLikes(pvo.getPostLikes() + 1);
+							pdao.updatePostLikes(pvo);
+						}
+					}
+					else {
+						if (ldao.deleteLike(lvo)) {
+							pvo.setPostLikes(pvo.getPostLikes() - 1);
+							pdao.updatePostLikes(pvo);
+							ldao.initLikeId(ldao.getLikeList().size());
+						}
+					}
+				}
+				else if (act.equals("scraps")) { // scraps 처리 구문
+					svo = sdao.searchLikeByUserIdAndPostId(session.getAttribute("userId").toString(), postId);
+					
+					if (svo.getScrapId() == 0) {
+						svo.setUserId(session.getAttribute("userId").toString());
+						svo.setPostId(postId);
+						
+						if (sdao.addScrap(svo)) {
+							pvo.setPostScraps(pvo.getPostScraps() + 1);
+							pdao.updatePostScraps(pvo);
+						}
+					}
+					else {
+						if (sdao.deleteScrap(svo)) {
+							pvo.setPostScraps(pvo.getPostScraps() - 1);
+							pdao.updatePostScraps(pvo);
+							sdao.initScrapId(sdao.getScrapList().size());
+						}
+					}
+				}
 				request.setAttribute("board", pvo);
 				request.setAttribute("replyList", replyList);
 				
@@ -121,8 +174,6 @@ public class EditServlet extends HttpServlet {
 				RequestDispatcher view = request.getRequestDispatcher("textedit.jsp");
 				view.forward(request, response);
 			}
-			
-			
 		}
 		else if (cmdReq.equals("uploadReply")) {
 			ReplyVO rvo = new ReplyVO();

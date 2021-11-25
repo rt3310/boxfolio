@@ -86,7 +86,10 @@
                 <div class="notice-title-container">
                     <h2 class="notice-title">자유게시판</h2>
                 </div>
-                <% PostVO pvo = (PostVO)request.getAttribute("board"); %>
+                <%
+                	PostVO pvo = (PostVO)request.getAttribute("board");
+                	List<ReplyVO> replyList = (List<ReplyVO>)request.getAttribute("replyList");
+                %>
                 <div class="board-container">
                     <div id="board-head">
                         <div class="board-title">
@@ -110,37 +113,36 @@
                 </div>
                 <div class="reply-container">
                     <div class="board-action">
-                        <a href="#" role="button" class="board-like">
+                        <a href="http://localhost:8080/wonho_free/EditServlet?cmd=inBoard&postId=<%=pvo.getPostId() %>&act=likes" role="button" class="board-like">
                             <i class="far fa-star"></i>
                             <p>추천 <%=pvo.getPostLikes() %></p>
                         </a>
-                        <a href="#" role="button" class="board-scrap">
+                        <a href="http://localhost:8080/wonho_free/EditServlet?cmd=inBoard&postId=<%=pvo.getPostId() %>&act=scraps" role="button" class="board-scrap">
                             <i class="far fa-bookmark"></i>
                             <p>스크랩 <%=pvo.getPostScraps() %></p>
                         </a>
                         <a href="#" role="button" class="board-reply">
                             <i class="far fa-comment-dots"></i>
-                            <p>댓글 0</p>
+                            <p>댓글 <%=replyList.size() %></p>
                         </a>
                     </div>
                     <div class="reply-area">
                     	<%
-                        	List<ReplyVO> replyList = (List<ReplyVO>)request.getAttribute("replyList");
-                        	for (ReplyVO vo : replyList) {
+                        	for (ReplyVO rvo : replyList) {
                         %>
                         <div class="reply">
                             <div class="reply-info">
-                                <span class="reply-user"><%=vo.getUserName() %></span>
-                                <span class="reply-created"><%=vo.getReplyCreated() %></span>
+                                <span class="reply-user"><%=rvo.getUserName() %></span>
+                                <span class="reply-created"><%=rvo.getReplyCreated() %></span>
                             </div>                            
-                            <div class="reply-content"><%=vo.getReplyContent() %></div>
+                            <div class="reply-content"><%=rvo.getReplyContent() %></div>
                         </div>
                         <%
                         	}
                         %>
                         <div class="reply-input">
                             <p class="reply-user"><%=session.getAttribute("userName") %></p>
-                            <form action="#" id="reply-form">
+                            <form action="http://localhost:8080/wonho_free/EditServlet?cmd=uploadReply&postId=<%=pvo.getPostId() %>" id="reply-form" method="post">
                                 <textarea name="reply" id="reply-content" rows="1" placeholder="댓글을 입력하세요"></textarea>
                                 <div class="reply-manage">
                                     <input type="submit" role="button" id="reply-btn" value="등록">

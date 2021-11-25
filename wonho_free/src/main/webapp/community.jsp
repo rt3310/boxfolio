@@ -125,7 +125,7 @@
                             <tr>
                                 <td class="td-num"><%=vo.getPostId() %></td>
                                 <td class="td-title">
-                                	<a href="http://localhost:8080/wonho_free/EditServlet?cmd=inBoard&id=<%=vo.getPostId() %>">
+                                	<a href="http://localhost:8080/wonho_free/EditServlet?cmd=inBoard&postId=<%=vo.getPostId() %>&act=atCommunity">
                                 		<%=vo.getPostTitle() %>
                                 	</a>
                                 	<% if (vo.getPostReplys() > 0) { %>

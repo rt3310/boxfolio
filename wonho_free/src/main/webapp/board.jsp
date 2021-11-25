@@ -113,11 +113,11 @@
                 </div>
                 <div class="reply-container">
                     <div class="board-action">
-                        <a href="#" role="button" class="board-like">
+                        <a href="http://localhost:8080/wonho_free/EditServlet?cmd=inBoard&postId=<%=pvo.getPostId() %>&act=likes" role="button" class="board-like">
                             <i class="far fa-star"></i>
                             <p>추천 <%=pvo.getPostLikes() %></p>
                         </a>
-                        <a href="#" role="button" class="board-scrap">
+                        <a href="http://localhost:8080/wonho_free/EditServlet?cmd=inBoard&postId=<%=pvo.getPostId() %>&act=scraps" role="button" class="board-scrap">
                             <i class="far fa-bookmark"></i>
                             <p>스크랩 <%=pvo.getPostScraps() %></p>
                         </a>

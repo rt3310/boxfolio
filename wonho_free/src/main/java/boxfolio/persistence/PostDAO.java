@@ -110,6 +110,57 @@ public class PostDAO {
 		return true;
 	}
 	
+	public boolean updatePostViews(PostVO vo) {
+		connect();
+		String sql = "update post set views=? where id=?";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, vo.getpostViews());
+			pstmt.setInt(2, vo.getPostId());
+			pstmt.executeUpdate();
+		} catch(SQLException e) {
+			e.printStackTrace();
+			return false;
+		} finally {
+			disconnect();
+		}
+		return true;
+	}
+	
+	public boolean updatePostLikes(PostVO vo) {
+		connect();
+		String sql = "update post set likes=? where id=?";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, vo.getPostLikes());
+			pstmt.setInt(2, vo.getPostId());
+			pstmt.executeUpdate();
+		} catch(SQLException e) {
+			e.printStackTrace();
+			return false;
+		} finally {
+			disconnect();
+		}
+		return true;
+	}
+	
+	public boolean updatePostScraps(PostVO vo) {
+		connect();
+		String sql = "update post set scraps=? where id=?";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, vo.getPostScraps());
+			pstmt.setInt(2, vo.getPostId());
+			pstmt.executeUpdate();
+		} catch(SQLException e) {
+			e.printStackTrace();
+			return false;
+		} finally {
+			disconnect();
+		}
+		return true;
+	}
+	
 	public ArrayList<PostVO> getPostList() {
 		connect();
 		ArrayList<PostVO> postList = new ArrayList<PostVO>();
