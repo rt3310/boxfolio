@@ -204,20 +204,24 @@ header {
     padding: 10px;
 }
 
-.edit-tool button {
+.edit-tool button, #tool-image {
     background-color: transparent;
     border: none;
     font-size: 20px;
-    font-weight: b;
+    font-weight: bold;
     margin: 0 5px;
 }
 
-.edit-tool button:hover {
+.edit-tool button:hover, #tool-image:hover{
     color: #f93;
 }
 
-.edit-tool button.active {
-    color: #35f;
+#tool-image label {
+    cursor: pointer;
+}
+
+#input-image {
+    display: none;
 }
 
 .edit-tool select {
@@ -263,10 +267,6 @@ header {
 
 #cancel-edit {
     background-color: #555;
-}
-
-#image-select {
-    display: none;
 }
 
 /* footer */

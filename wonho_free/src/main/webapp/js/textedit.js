@@ -6,7 +6,6 @@ const btnStrike = document.getElementById('tool-cancel');
 const btnOrderedList = document.getElementById('tool-orderlist');
 const btnUnorderedList = document.getElementById('tool-unorderlist');
 const btnImage = document.getElementById('tool-image');
-const imageSelector = document.getElementById('image-select');
 const btnFull = document.getElementById('tool-full');
 const btnLeft = document.getElementById('tool-left');
 const btnCenter = document.getElementById('tool-center');
@@ -67,14 +66,7 @@ btnRight.addEventListener('click', function() {
 })
 
 btnImage.addEventListener('click', function() {
-    imageSelector.click();
-});
-
-imageSelector.addEventListener('change', function (e) {
-    const files = e.target.files;
-    if (!!files) {
-        insertImageDate(files[0]);
-    }
+    
 });
 
 fontSizeSelector.addEventListener('change', function() {
@@ -93,13 +85,21 @@ editor.addEventListener('mousedown', function() {
     checkStyle();
 });
 
-function insertImageDate(file) {
-    const reader = new FileReader();
-    reader.addEventListener('load', function (e) {
-        focusEditor();
-        document.execCommand('insertImage', false, `${reader.result}`);
-    });
-    reader.readAsDataURL(file);
+function loadFile(input) {
+    let file = input.files[0];
+
+    let newImage = document.createElement("img");
+    newImage.setAttribute("class", 'image');
+
+    newImage.src = URL.createObjectURL(file);
+
+    newImage.style.width = "auto";
+    newImage.style.height = "100%";
+    newImage.style.objectFit = "contain";
+
+    let container = document.getElementById('editor');
+    container.appendChild(newImage);
+    focusEditor();
 }
 
 function changeFontName(name) {

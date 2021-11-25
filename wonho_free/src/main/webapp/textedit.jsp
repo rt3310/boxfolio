@@ -115,9 +115,12 @@
                         <button id="tool-unorderlist">
                             <i class="fas fa-list-ul"></i>
                         </button>
-                        <button id="tool-image">
-                            <i class="far fa-image"></i>
-                        </button>
+                        <span id="tool-image">
+                            <label for="input-image">
+                                <i class="far fa-image"></i>
+                            </label>
+                            <input type="file" id="input-image" accept="image/*" onchange="loadFile(this)">
+                        </span>
                         <button id="tool-full">
                             <i class="fas fa-align-justify"></i>
                         </button>
@@ -156,7 +159,6 @@
                         </select>
                     </div>
                     <div id="editor" contenteditable="true">
-                        <input id="image-select" type="file" accept="image/*">
                     </div>
                 </div>
                 <div class="access-container">
