@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" import="boxfolio.domain.*, java.util.List" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -83,38 +85,38 @@
             <div class="wrap">
                 <div class="notice-title-container">
                     <h2 class="notice-title">자유게시판</h2>
-                    </ul>
                 </div>
+                <% PostVO pvo = (PostVO)request.getAttribute("board"); %>
                 <div class="board-container">
                     <div id="board-head">
                         <div class="board-title">
-                            <h2>제목</h2>
+                            <h2><%=pvo.getPostTitle() %></h2>
                         </div>
                         <div class="board-user">
                             <i class="far fa-user-circle profile-icon"></i>
                             <div class="board-info">
                                 <p class="user-name">
-                                    서원호
+                                    <%=pvo.getUserName() %>
                                 </p>
                                 <p class="created-date">
-                                    2021.11.24 21:54:04
+                                    <%=pvo.getPostCreated() %>
                                 </p>
                             </div>
                         </div>
                     </div>
                     <div id="board">
-                        <input id="image-select" type="file" accept="image/*">
+                        <%=pvo.getPostContent() %>
                     </div>
                 </div>
                 <div class="reply-container">
                     <div class="board-action">
                         <a href="#" role="button" class="board-like">
                             <i class="far fa-star"></i>
-                            <p>추천 0</p>
+                            <p>추천 <%=pvo.getPostLikes() %></p>
                         </a>
                         <a href="#" role="button" class="board-scrap">
                             <i class="far fa-bookmark"></i>
-                            <p>스크랩 0</p>
+                            <p>스크랩 <%=pvo.getPostScraps() %></p>
                         </a>
                         <a href="#" role="button" class="board-reply">
                             <i class="far fa-comment-dots"></i>
@@ -122,19 +124,28 @@
                         </a>
                     </div>
                     <div class="reply-area">
+                    	<%
+                        	List<ReplyVO> replyList = (List<ReplyVO>)request.getAttribute("replyList");
+                        	for (ReplyVO vo : replyList) {
+                        %>
                         <div class="reply">
                             <div class="reply-info">
-                                <span class="reply-user">서원호</span>
-                                <span class="reply-created">21.11.24 23:40</span>
+                                <span class="reply-user"><%=vo.getUserName() %></span>
+                                <span class="reply-created"><%=vo.getReplyCreated() %></span>
                             </div>                            
-                            <div class="reply-content">내용이에용</div>
+                            <div class="reply-content"><%=vo.getReplyContent() %></div>
                         </div>
+                        <%
+                        	}
+                        %>
                         <div class="reply-input">
-                            <p class="reply-user">서원호</p>
-                            <textarea name="reply" id="reply-content" rows="1" placeholder="댓글을 입력하세요"></textarea>
-                            <div class="reply-manage">
-                                <a href="#" role="button" id="reply-btn">등록</a>
-                            </div>
+                            <p class="reply-user"><%=session.getAttribute("userName") %></p>
+                            <form action="#" id="reply-form">
+                                <textarea name="reply" id="reply-content" rows="1" placeholder="댓글을 입력하세요"></textarea>
+                                <div class="reply-manage">
+                                    <input type="submit" role="button" id="reply-btn" value="등록">
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>

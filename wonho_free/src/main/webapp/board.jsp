@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="boxfolio.domain.*"%>
+    pageEncoding="UTF-8" import="boxfolio.domain.*, java.util.List" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -124,19 +124,28 @@
                         </a>
                     </div>
                     <div class="reply-area">
+                    	<%
+                        	List<ReplyVO> replyList = (List<ReplyVO>)request.getAttribute("replyList");
+                        	for (ReplyVO vo : replyList) {
+                        %>
                         <div class="reply">
                             <div class="reply-info">
-                                <span class="reply-user">서원호</span>
-                                <span class="reply-created">21.11.24 23:40</span>
+                                <span class="reply-user"><%=vo.getUserName() %></span>
+                                <span class="reply-created"><%=vo.getReplyCreated() %></span>
                             </div>                            
-                            <div class="reply-content">내용이에용</div>
+                            <div class="reply-content"><%=vo.getReplyContent() %></div>
                         </div>
+                        <%
+                        	}
+                        %>
                         <div class="reply-input">
                             <p class="reply-user"><%=session.getAttribute("userName") %></p>
-                            <textarea name="reply" id="reply-content" rows="1" placeholder="댓글을 입력하세요"></textarea>
-                            <div class="reply-manage">
-                                <a href="#" role="button" id="reply-btn">등록</a>
-                            </div>
+                            <form action="http://localhost:8080/wonho_free/EditServlet?cmd=uploadReply&postId=<%=pvo.getPostId() %>" id="reply-form" method="post">
+                                <textarea name="reply" id="reply-content" rows="1" placeholder="댓글을 입력하세요"></textarea>
+                                <div class="reply-manage">
+                                    <input type="submit" role="button" id="reply-btn" value="등록">
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>

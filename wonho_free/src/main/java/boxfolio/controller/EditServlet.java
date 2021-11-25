@@ -13,8 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import boxfolio.domain.PostVO;
+import boxfolio.domain.ReplyVO;
 import boxfolio.domain.UserVO;
 import boxfolio.persistence.PostDAO;
+import boxfolio.persistence.ReplyDAO;
 import boxfolio.persistence.UserDAO;
 
 /**
@@ -56,17 +58,21 @@ public class EditServlet extends HttpServlet {
 			}
 		}
 		else if (cmdReq.equals("inBoard")) {
-			String title = request.getParameter("title");
-			String name = request.getParameter("name");
+			int id = Integer.parseInt(request.getParameter("id")); 
 			
 			HttpSession session = request.getSession();
+			
 			PostDAO pdao = new PostDAO();
+			ReplyDAO rdao = new ReplyDAO();
 			PostVO pvo = new PostVO();
+			ArrayList<ReplyVO> replyList = new ArrayList<ReplyVO>();
 			
 			if (session.getAttribute("isLogined") == "true") {
-				pvo = pdao.searchPostByTitleAndName(title, name);
+				pvo = pdao.searchPostById(id);
+				replyList = rdao.searchReplyListByPostId(id);
 				
 				request.setAttribute("board", pvo);
+				request.setAttribute("replyList", replyList);
 				RequestDispatcher view = request.getRequestDispatcher("board.jsp");
 				view.forward(request, response);
 			}
@@ -84,12 +90,12 @@ public class EditServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
+		HttpSession session = request.getSession();
 		
 		String cmdReq = "";
 		cmdReq = request.getParameter("cmd");
 		
 		if(cmdReq.equals("uploadBoard")) {
-			HttpSession session = request.getSession();
 			PostVO pvo = new PostVO();
 			
 			pvo.setPostTitle(request.getParameter("title"));
@@ -114,6 +120,32 @@ public class EditServlet extends HttpServlet {
 			}
 			
 			
+		}
+		else if (cmdReq.equals("uploadReply")) {
+			ReplyVO rvo = new ReplyVO();
+			
+			int postId = Integer.parseInt(request.getParameter("postId"));
+			
+			rvo.setReplyContent(request.getParameter("reply"));
+			rvo.setPostId(postId);
+			rvo.setUserId(session.getAttribute("userId").toString());
+			rvo.setUserName(session.getAttribute("userName").toString());
+			
+			PostDAO pdao = new PostDAO();
+			ReplyDAO rdao = new ReplyDAO();
+			PostVO pvo = new PostVO();
+			ArrayList<ReplyVO> replyList = new ArrayList<ReplyVO>();
+			
+			PrintWriter writer = response.getWriter();
+			if (rdao.addReply(rvo) ) {
+				pvo = pdao.searchPostById(postId);
+				replyList = rdao.searchReplyListByPostId(postId);
+				
+				request.setAttribute("board", pvo);
+				request.setAttribute("replyList", replyList);
+				RequestDispatcher view = request.getRequestDispatcher("board.jsp");
+				view.forward(request, response);
+			}
 		}
 	}
 

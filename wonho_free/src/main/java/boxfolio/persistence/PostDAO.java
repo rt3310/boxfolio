@@ -63,17 +63,17 @@ public class PostDAO {
 		return true;
 	}
 	
-	public PostVO searchPostByTitleAndName(String title, String userName) {
+	public PostVO searchPostById(int postId) {
 		connect();
-		String sql = "select * from post where title=? and user_name=?";
+		String sql = "select * from post where id=?";
 		PostVO pvo = new PostVO();
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, title);
-			pstmt.setString(2, userName);
+			pstmt.setInt(1, postId);
 			ResultSet rs = pstmt.executeQuery();
 
 			while (rs.next()) {
+				pvo.setPostId(rs.getInt("id"));
 				pvo.setPostTitle(rs.getString("title"));
 				pvo.setPostContent(rs.getString("content"));
 				pvo.setPostCreated(rs.getString("created"));
@@ -103,7 +103,7 @@ public class PostDAO {
 			
 			while (rs.next()) {
 				PostVO pvo = new PostVO();
-				pvo.setPostId(rs.getInt("post_id"));
+				pvo.setPostId(rs.getInt("id"));
 				pvo.setPostTitle(rs.getString("title"));
 				pvo.setPostContent(rs.getString("content"));
 				pvo.setPostCreated(rs.getString("created"));
