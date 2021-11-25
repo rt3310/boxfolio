@@ -207,6 +207,10 @@ header {
     text-decoration: underline;
 }
 
+.td-replys {
+	color: red;
+}
+
 .access-container {
     display: flex;
     justify-content: flex-end;

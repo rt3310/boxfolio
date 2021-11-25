@@ -124,7 +124,14 @@
                         	%>
                             <tr>
                                 <td class="td-num"><%=vo.getPostId() %></td>
-                                <td class="td-title"><a href="http://localhost:8080/wonho_free/EditServlet?cmd=inBoard&id=<%=vo.getPostId() %>"><%=vo.getPostTitle() %></a></td>
+                                <td class="td-title">
+                                	<a href="http://localhost:8080/wonho_free/EditServlet?cmd=inBoard&id=<%=vo.getPostId() %>">
+                                		<%=vo.getPostTitle() %>
+                                	</a>
+                                	<% if (vo.getPostReplys() > 0) { %>
+                                	<span class="td-replys"><%= "[" + vo.getPostReplys() + "]"  %></span>
+                                	<% } %>
+                                </td>
                                 <td class="td-name"><a href="#"><%=vo.getUserName() %></a></td>
                                 <td class="td-date"><%=vo.getPostCreated() %></td>
                                 <td class="td-view"><%=vo.getpostViews() %></td>

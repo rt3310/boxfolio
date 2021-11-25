@@ -73,6 +73,7 @@ public class EditServlet extends HttpServlet {
 				
 				request.setAttribute("board", pvo);
 				request.setAttribute("replyList", replyList);
+				
 				RequestDispatcher view = request.getRequestDispatcher("board.jsp");
 				view.forward(request, response);
 			}
@@ -108,8 +109,10 @@ public class EditServlet extends HttpServlet {
 			PrintWriter writer = response.getWriter();
 			if (pdao.addPost(pvo)) {
 				writer.println("<script>alert('업로드 완료.');</script>");
+				
 				ArrayList<PostVO> postList = pdao.getPostList();
 				request.setAttribute("postList", postList);
+				
 				RequestDispatcher view = request.getRequestDispatcher("community.jsp");
 				view.forward(request, response);
 			}
@@ -123,6 +126,10 @@ public class EditServlet extends HttpServlet {
 		}
 		else if (cmdReq.equals("uploadReply")) {
 			ReplyVO rvo = new ReplyVO();
+			PostDAO pdao = new PostDAO();
+			ReplyDAO rdao = new ReplyDAO();
+			PostVO pvo = new PostVO();
+			ArrayList<ReplyVO> replyList = new ArrayList<ReplyVO>();
 			
 			int postId = Integer.parseInt(request.getParameter("postId"));
 			
@@ -131,20 +138,19 @@ public class EditServlet extends HttpServlet {
 			rvo.setUserId(session.getAttribute("userId").toString());
 			rvo.setUserName(session.getAttribute("userName").toString());
 			
-			PostDAO pdao = new PostDAO();
-			ReplyDAO rdao = new ReplyDAO();
-			PostVO pvo = new PostVO();
-			ArrayList<ReplyVO> replyList = new ArrayList<ReplyVO>();
-			
 			PrintWriter writer = response.getWriter();
 			if (rdao.addReply(rvo) ) {
 				pvo = pdao.searchPostById(postId);
 				replyList = rdao.searchReplyListByPostId(postId);
 				
-				request.setAttribute("board", pvo);
-				request.setAttribute("replyList", replyList);
-				RequestDispatcher view = request.getRequestDispatcher("board.jsp");
-				view.forward(request, response);
+				pvo.setPostReplys(replyList.size());
+				if (pdao.updatePostReply(pvo)) {
+					request.setAttribute("board", pvo);
+					request.setAttribute("replyList", replyList);
+					
+					RequestDispatcher view = request.getRequestDispatcher("board.jsp");
+					view.forward(request, response);
+				}
 			}
 		}
 	}

@@ -11,6 +11,7 @@ public class PostVO {
 	private int postViews;
 	private int postLikes;
 	private int postScraps;
+	private int postReplys;
 	
 	public int getPostId() {
 		return postId;
@@ -65,6 +66,12 @@ public class PostVO {
 	}
 	public void setPostScraps(int postScraps) {
 		this.postScraps = postScraps;
+	}
+	public int getPostReplys() {
+		return postReplys;
+	}
+	public void setPostReplys(int postReplys) {
+		this.postReplys = postReplys;
 	}
 
 }

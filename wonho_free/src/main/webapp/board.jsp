@@ -86,7 +86,10 @@
                 <div class="notice-title-container">
                     <h2 class="notice-title">자유게시판</h2>
                 </div>
-                <% PostVO pvo = (PostVO)request.getAttribute("board"); %>
+                <%
+                	PostVO pvo = (PostVO)request.getAttribute("board");
+                	List<ReplyVO> replyList = (List<ReplyVO>)request.getAttribute("replyList");
+                %>
                 <div class="board-container">
                     <div id="board-head">
                         <div class="board-title">
@@ -120,20 +123,19 @@
                         </a>
                         <a href="#" role="button" class="board-reply">
                             <i class="far fa-comment-dots"></i>
-                            <p>댓글 0</p>
+                            <p>댓글 <%=replyList.size() %></p>
                         </a>
                     </div>
                     <div class="reply-area">
                     	<%
-                        	List<ReplyVO> replyList = (List<ReplyVO>)request.getAttribute("replyList");
-                        	for (ReplyVO vo : replyList) {
+                        	for (ReplyVO rvo : replyList) {
                         %>
                         <div class="reply">
                             <div class="reply-info">
-                                <span class="reply-user"><%=vo.getUserName() %></span>
-                                <span class="reply-created"><%=vo.getReplyCreated() %></span>
+                                <span class="reply-user"><%=rvo.getUserName() %></span>
+                                <span class="reply-created"><%=rvo.getReplyCreated() %></span>
                             </div>                            
-                            <div class="reply-content"><%=vo.getReplyContent() %></div>
+                            <div class="reply-content"><%=rvo.getReplyContent() %></div>
                         </div>
                         <%
                         	}

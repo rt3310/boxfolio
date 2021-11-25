@@ -15,7 +15,7 @@ public class PostDAO {
 	PreparedStatement pstmt = null;
 	
 	String jdbc_driver = "com.mysql.cj.jdbc.Driver";
-	String jdbc_url = "jdbc:mysql://localhost:3306/boxfoliodb?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC";
+	String jdbc_url = "jdbc:mysql://localhost:3306/boxfoliodb?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC&autoReconnect=true";
 	
 	void connect() {
 		try {
@@ -82,6 +82,7 @@ public class PostDAO {
 				pvo.setpostViews(rs.getInt("views"));
 				pvo.setPostLikes(rs.getInt("likes"));
 				pvo.setPostScraps(rs.getInt("scraps"));
+				pvo.setPostScraps(rs.getInt("replys"));
 			}
 		
 		} catch(SQLException e) {
@@ -90,6 +91,23 @@ public class PostDAO {
 			disconnect();
 		}
 		return pvo;
+	}
+	
+	public boolean updatePostReply(PostVO vo) {
+		connect();
+		String sql = "update post set replys=? where id=?";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, vo.getPostReplys());
+			pstmt.setInt(2, vo.getPostId());
+			pstmt.executeUpdate();
+		} catch(SQLException e) {
+			e.printStackTrace();
+			return false;
+		} finally {
+			disconnect();
+		}
+		return true;
 	}
 	
 	public ArrayList<PostVO> getPostList() {
@@ -112,6 +130,7 @@ public class PostDAO {
 				pvo.setpostViews(rs.getInt("views"));
 				pvo.setPostLikes(rs.getInt("likes"));
 				pvo.setPostScraps(rs.getInt("scraps"));
+				pvo.setPostReplys(rs.getInt("replys"));
 				postList.add(pvo);
 			}
 			rs.close();
