@@ -82,7 +82,7 @@ public class PostDAO {
 				pvo.setpostViews(rs.getInt("views"));
 				pvo.setPostLikes(rs.getInt("likes"));
 				pvo.setPostScraps(rs.getInt("scraps"));
-				pvo.setPostScraps(rs.getInt("replys"));
+				pvo.setPostReplys(rs.getInt("replys"));
 			}
 		
 		} catch(SQLException e) {
