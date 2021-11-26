@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib tagdir="/WEB-INF/tags" prefix="mytag" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -81,14 +82,24 @@
                 </div>
             </div>
         </header>
-        <section>
+        <section id="pofol-section">
             <div class="wrap">
-                <div id="pofol-container">
-
+                <div class="pofol-title-container">
+                    <textarea name="pofol-title" id="pofol-title" cols="30" rows="1" placeholder="제목을 입력하세요"></textarea>
                 </div>
+                <div id="pofol-container"></div>
                 <div class="add-pofol-container">
-                    <button id="add-pofol-btn">
-                        <img src="resources/plus-sign.png" alt="add-pofol" class="add-pofol-icon" />
+                    <button id="add-pofol-image">
+                        <i class="far fa-image add-pofol-icon"></i>
+                    </button>
+                    <button id="add-pofol-text">
+                        <i class="fas fa-font add-pofol-icon"></i>
+                    </button>
+                    <button id="add-pofol-code">
+                        <i class="far fa-file-code add-pofol-icon"></i>
+                    </button>
+                    <button id="add-pofol-video">
+                        <i class="fas fa-video add-pofol-icon"></i>
                     </button>
                 </div>
                 <div class="access-container">
@@ -101,14 +112,7 @@
             <div class="wrap">
                 <div class="intro-container">
                     <div class="intro">
-                        <ul>
-                            <li>작성자: 서원호</li>
-                            <li>tel: 010-4805-3273</li>
-                            <li>
-                                email:
-                                <a href="mailto:btac3310@gmail.com">btac3310@gmail.com</a>
-                            </li>
-                        </ul>
+                        <mytag:printfooter/>
                     </div>
                 </div>
             </div>

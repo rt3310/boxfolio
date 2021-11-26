@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib tagdir="/WEB-INF/tags" prefix="mytag" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -94,7 +95,7 @@
                 <div class="contents-container">
                     <ul class="contents">
                         <li>
-                            <a href="#">
+                            <a href="http://localhost:8080/wonho_free/PortfolioServlet?cmd=create">
                                 <img id="content-drawup" src="resources/contract.png" alt="포트폴리오 작성하기"/>
                                 <p>포트폴리오 작성</p>
                             </a>
@@ -107,13 +108,13 @@
                         </li>
                         <li>
                             <a href="#">
-                                <img id="content-team" src="resources/people.png" alt="포트폴리오 작성하기"/>
+                                <img id="content-team" src="resources/people.png" alt="대외활동 팀원 찾기"/>
                                 <p>대외활동 팀원 찾기</p>
                             </a>
                         </li>
                         <li>
                             <a href="#">
-                                <img id="content-inquire" src="resources/question.png" alt="포트폴리오 작성하기"/>
+                                <img id="content-inquire" src="resources/question.png" alt="1:1 질문"/>
                                 <p>1:1 질문</p>
                             </a>
                         </li>
@@ -140,14 +141,7 @@
             <div class="wrap">
                 <div class="intro-container">
                     <div class="intro">
-                        <ul>
-                            <li>작성자: 서원호</li>
-                            <li>tel: 010-4805-3273</li>
-                            <li>
-                                email:
-                                <a href="mailto:btac3310@gmail.com">btac3310@gmail.com</a>
-                            </li>
-                        </ul>
+                        <mytag:printfooter/>
                     </div>
                 </div>
             </div>

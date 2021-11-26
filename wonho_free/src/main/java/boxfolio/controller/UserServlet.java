@@ -1,6 +1,7 @@
 package boxfolio.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -97,6 +98,28 @@ public class UserServlet extends HttpServlet {
 				view.forward(request, response);
 			}
 			
+		}
+		else if (cmdReq.equals("signin")) {
+			UserVO uvo = new UserVO();
+			UserDAO udao = new UserDAO();
+			
+			PrintWriter writer = response.getWriter();
+			
+			uvo.setUserId(request.getParameter("id"));
+			uvo.setUserPasswd(request.getParameter("passwd"));
+			uvo.setUserName(request.getParameter("username"));
+			uvo.setUserBirth(request.getParameter("year") + "-" + request.getParameter("month") + "-" + request.getParameter("day"));
+			uvo.setUserEmail(request.getParameter("email") + "@" + request.getParameter("address"));
+			
+			if (udao.addUser(uvo)) {
+				RequestDispatcher view = request.getRequestDispatcher("signinresult.jsp");
+				view.forward(request, response);
+			}
+			else {
+				writer.println("<script>alert('업로드에 실패했습니다.');</script>");
+				RequestDispatcher view = request.getRequestDispatcher("signin.jsp");
+				view.forward(request, response);
+			}
 		}
 		
 	}

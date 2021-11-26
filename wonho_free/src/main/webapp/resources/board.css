@@ -38,6 +38,7 @@ button:hover {
 
 .root-wrap {
     min-height: 100%;
+    height: auto;
     position: relative;
     padding-bottom: 100px;
 }

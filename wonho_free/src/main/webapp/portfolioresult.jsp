@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="boxfolio.domain.*, java.util.List" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    pageEncoding="UTF-8" import="boxfolio.domain.*, java.util.List"%>
 <%@ taglib tagdir="/WEB-INF/tags" prefix="mytag" %>
 <!DOCTYPE html>
 <html lang="ko">
@@ -27,10 +26,12 @@
     <link rel="short icon" type="image/x-icon" href="resources/magic-box.png">
 
     <!--CSS-->
-    <link rel="stylesheet" href="resources/board.css">
+    <link rel="stylesheet" href="resources/portfolioresult.css">
 
     <!--FontAwesome-->
     <script src="https://kit.fontawesome.com/5ac43742ba.js" crossorigin="anonymous"></script>
+
+    <script defer src="js/portfolioboard.js"></script>
 </head>
 <body>
     <div class="root-wrap">
@@ -81,71 +82,18 @@
                 </div>
             </div>
         </header>
-        <section>
+        <section id="pofol-section">
             <div class="wrap">
-                <div class="notice-title-container">
-                    <h2 class="notice-title">자유게시판</h2>
-                </div>
+                <div class="pofol-title-container">
                 <%
-                	PostVO pvo = (PostVO)request.getAttribute("board");
-                	List<ReplyVO> replyList = (List<ReplyVO>)request.getAttribute("replyList");
+                	PortfolioVO pfvo = (PortfolioVO)request.getAttribute("portfolioBoard");
                 %>
-                <div class="board-container">
-                    <div id="board-head">
-                        <div class="board-title">
-                            <h2><c:out value="${board.postTitle}"/></h2>
-                        </div>
-                        <div class="board-user">
-                            <i class="far fa-user-circle profile-icon"></i>
-                            <div class="board-info">
-                                <p class="user-name">
-                                    <c:out value="${board.userName}"/>
-                                </p>
-                                <p class="created-date">
-                                    <c:out value="${board.postCreated}"/>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="board">
-                        <%=pvo.getPostContent() %>
-                    </div>
+                    <div id="pofol-title"><%=pfvo.getPortfolioTitle() %></div>
                 </div>
-                <div class="reply-container">
-                    <div class="board-action">
-                        <a href="http://localhost:8080/wonho_free/EditServlet?cmd=inBoard&postId=<c:out value="${board.postId}"/>&act=likes" role="button" class="board-like">
-                            <i class="far fa-star"></i>
-                            <p>추천 <c:out value="${board.postLikes}"/></p>
-                        </a>
-                        <a href="http://localhost:8080/wonho_free/EditServlet?cmd=inBoard&postId=<c:out value="${board.postId}"/>&act=scraps" role="button" class="board-scrap">
-                            <i class="far fa-bookmark"></i>
-                            <p>스크랩 <c:out value="${board.postScraps}"/></p>
-                        </a>
-                        <a href="#" role="button" class="board-reply">
-                            <i class="far fa-comment-dots"></i>
-                            <p>댓글 <%=replyList.size() %></p>
-                        </a>
-                    </div>
-                    <div class="reply-area">
-                        <c:forEach var="reply" items="${replyList}">
-                        <div class="reply">
-                            <div class="reply-info">
-                                <span class="reply-user"><c:out value="${reply.userName}"/></span>
-                                <span class="reply-created"><c:out value="${reply.replyCreated}"/></span>
-                            </div>                            
-                            <div class="reply-content"><c:out value="${reply.replyContent}"/></div>
-                        </div>
-                        </c:forEach>
-                        <div class="reply-input">
-                            <p class="reply-user"><%=session.getAttribute("userName") %></p>
-                            <form action="http://localhost:8080/wonho_free/EditServlet?cmd=uploadReply&postId=<c:out value="${board.postId}"/>" id="reply-form" method="post">
-                                <textarea name="reply" id="reply-content" rows="1" placeholder="댓글을 입력하세요"></textarea>
-                                <div class="reply-manage">
-                                    <input type="submit" role="button" id="reply-btn" value="등록">
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+                <div id="pofol-container"><%=pfvo.getPortfolioContent() %></div>
+                <div class="access-container">
+                    <button id="save-edit">저장</button>
+                    <button id="cancel-edit">취소</button>
                 </div>
             </div>
         </section>

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="boxfolio.domain.*, java.util.List"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib tagdir="/WEB-INF/tags" prefix="mytag" %>
 <!DOCTYPE html>
 <html lang="ko">
     <head>
@@ -91,24 +93,25 @@
                         </form>
                     </div>
                     <div class="to-mypofol">
-                        <span>내 포트폴리오 만들기</span>
+                        <a href="http://localhost:8080/wonho_free/PortfolioServlet?cmd=create">내 포트폴리오 만들기</a>
                         <i class="fas fa-arrow-right"></i>
                     </div>
                 </div>
                 <div class="pofol-container">
                     <ul class="pofol-list">
+                        <c:forEach var="pofol" items="${portfolioList}">
                         <li class="pofol-card">
-                            <a href="#">
+                            <a href="http://localhost:8080/wonho_free/PortfolioServlet?cmd=inPortfolio&id=<c:out value="${pofol.portfolioId}"/>">
                                 <img src="resources/computer.jpeg" alt="portfolio" class="pofol-image"/>
                                 <div class="pofol-info">
                                     <div class="pofol-title">
-                                        <h3>OOO님의 포트폴리오 BOX</h3>
+                                        <h3><c:out value="${pofol.portfolioTitle}"/></h3>
                                     </div>
                                     <div class="pofol-depart">
-                                        <p>컴퓨터공학과</p>
+                                        <p><c:out value="${pofol.userId}"/></p>
                                     </div>
                                     <div class="pofol-hope">
-                                        <p>웹 프론트/서버</p>
+                                        <p>컴퓨터공학과</p>
                                     </div>
                                     <div class="pofol-intro">
                                         <p>한줄 소개</p>
@@ -124,6 +127,7 @@
                                 </li>
                             </ul>
                         </li>
+                        </c:forEach>
                     </ul>
                 </div>
             </div>
@@ -132,14 +136,7 @@
             <div class="wrap">
                 <div class="intro-container">
                     <div class="intro">
-                        <ul>
-                            <li>작성자: 서원호</li>
-                            <li>tel: 010-4805-3273</li>
-                            <li>
-                                email:
-                                <a href="mailto:btac3310@gmail.com">btac3310@gmail.com</a>
-                            </li>
-                        </ul>
+                        <mytag:printfooter/>
                     </div>
                 </div>
             </div>

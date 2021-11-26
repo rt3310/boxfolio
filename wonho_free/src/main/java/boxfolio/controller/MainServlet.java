@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import boxfolio.domain.PortfolioVO;
 import boxfolio.domain.PostVO;
+import boxfolio.persistence.PortfolioDAO;
 import boxfolio.persistence.PostDAO;
 
 /**
@@ -44,6 +46,10 @@ public class MainServlet extends HttpServlet {
 			view.forward(request, response);
 		}
 		else if (cmdReq.equals("portfolio")) {
+			PortfolioDAO pfdao = new PortfolioDAO();
+			ArrayList<PortfolioVO> portfolioList = pfdao.getPortfolioList();
+			request.setAttribute("portfolioList", portfolioList);
+			
 			RequestDispatcher view = request.getRequestDispatcher("portfolio.jsp");
 			view.forward(request, response);
 		}

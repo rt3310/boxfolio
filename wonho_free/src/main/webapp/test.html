@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib tagdir="/WEB-INF/tags" prefix="mytag" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -25,12 +26,10 @@
     <link rel="short icon" type="image/x-icon" href="resources/magic-box.png">
 
     <!--CSS-->
-    <link rel="stylesheet" href="resources/portfolioboard.css">
+    <link rel="stylesheet" href="resources/signinresult.css">
 
     <!--FontAwesome-->
     <script src="https://kit.fontawesome.com/5ac43742ba.js" crossorigin="anonymous"></script>
-
-    <script defer src="js/portfolioboard.js"></script>
 </head>
 <body>
     <div class="root-wrap">
@@ -82,17 +81,23 @@
             </div>
         </header>
         <section>
+            <div class="signin-title">
+                <h1>Signin for BOXFOLIO</h1>
+            </div>
+        </section>
+        <section>
             <div class="wrap">
-                <div id="pofol-container">
-                </div>
-                <div class="add-pofol-container">
-                    <button id="add-pofol-btn">
-                        <img src="resources/plus-sign.png" alt="add-pofol" class="add-pofol-icon" />
-                    </button>
-                </div>
-                <div class="access-container">
-                    <button id="save-edit">저장</button>
-                    <button id="cancel-edit">취소</button>
+                <div class="signin-container">
+                    <div class="signin-result">
+                        <div class="result-image">
+                            <i class="far fa-check-circle"></i>
+                            <p>회원가입이 완료되었습니다!</p>
+                        </div>
+                        <div class="signin-btn-area">
+                            <a class="accept-btn" href="#">홈으로</a>
+                            <a class="login-btn" href="#">로그인</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
