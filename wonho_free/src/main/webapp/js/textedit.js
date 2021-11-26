@@ -220,7 +220,7 @@ saveEdit.addEventListener('click', function() {
     const title = document.getElementById('edit-title');
     var content = document.getElementById('editor');
     const titleText = title.value;
-    const contentText = content.innerHTML.replace(`<input id="image-select" type="file" accept="image/*">`, '');
+    const contentText = content.innerHTML;
 
     const params = {'title':titleText, 'content':contentText};
     sendPost(urlToSendForBoard, params);

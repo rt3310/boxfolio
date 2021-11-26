@@ -159,175 +159,85 @@ header {
     width: 1px;
 }
 
-/* notice-title */
-.notice-title-container {
-    background-color: #fdb;
-    border-radius: 8px;
-    margin: 20px 10px;
-    padding: 20px 30px;
+/* pofol-container */
+
+.add-pofol-container {
+    display: flex;
+    justify-content: center;
 }
 
-.edit-head-container {
-    margin: 20px 10px;
+.pofol-board {
+    align-items: center;
+    background-color: #fafafa;
+    border: 1px solid #555;
+    border-radius: 10px;
+    display: flex;
+    height: auto;
+    justify-content: center;
+    margin: 10px 0;
+    padding: 10px;
+    width: 100%;
 }
 
-.edit-container {
-    margin: 20px 10px;
-}
-
-#board-head {
+.pofol-board button {
+    background-color: #f93;
     border: 0;
-    border-bottom: 1px solid #ddd;
-    font-family: "맑은 고딕", "고딕";
-    height: auto;
-    margin: 10px 0;
-    overflow: hidden;
-    padding: 10px;
-    width: 100%;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 48px;
+    margin: 10px;
+    height: 100px;
+    width: 100px;
 }
 
-.board-title {
-    font-size: 18px;
+.pofol-board button:hover {
+    background-color: #fa5;
 }
 
-.board-user {
-    display: flex;
-    margin-top: 10px;
-}
-
-.board-user .profile-icon {
-    font-size: 32px;
-    margin-right: 10px;
-}
-
-.board-info {
-    color: #555;
-    display: flex;
-    flex-direction: column;
-    font-size: 13px;
-    justify-content: space-between;
-}
-
-#board {
-    border-radius: 3px;
-    height: auto;
-    outline: none;
-    padding: 16px 24px;
-    text-align: justify;
-}
-
-#board img {
-    max-width: 100%;
-}
-
-.reply-container {
-    display: flex;
-    flex-direction: column;
-}
-
-.board-action {
+.image-container {
     align-items: center;
-    border-bottom: 1px solid #ddd;
     display: flex;
-    justify-content: flex-end;
-    padding: 10px;
-    margin: 10px 0;
+    height: 100%;
+    justify-content: center;
     width: 100%;
 }
 
-.board-action a {
-    align-items: center;
-    border: 1px solid #aaa;
-    border-radius: 5px;
+#add-pofol-btn {
+    background-color: transparent;
+    border: 0;
+    margin: 12px 0;
+    padding: 0;
+}
+
+#add-pofol-btn:hover {
+    filter: invert(76%) sepia(35%) saturate(816%) hue-rotate(330deg) brightness(100%) contrast(102%);
+}
+
+.add-pofol-icon {
+    width: 64px;
+}
+
+.access-container {
     display: flex;
-    height: 30px;
-    margin-left: 10px;
-    padding: 0 10px;
+    justify-content: center;
+    margin: 20px 10px;
 }
 
-.board-like:hover {
-    color: #faec25;
-}
-
-.board-scrap:hover {
-    color: #00aeff;
-}
-
-.board-reply:hover {
-    color: #78d454;
-}
-
-.board-action a p {
-    margin-left: 5px;
-}
-
-.reply {
-    border-bottom: 1px solid #ddd;
-    padding: 10px 20px;
-    width: 100%;
-}
-
-.reply-info {
-    margin-bottom: 5px;
-}
-
-.reply-user {
-    font-weight: bold;
-}
-
-.reply-created {
-    color: #555;
-    font-size: 12px;
-}
-
-.reply-input {
+.access-container button {
     border: 1px solid #ddd;
-    border-radius: 7px;
-    margin: 10px 0;
-    padding: 10px;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 16px;
+    margin: 0 10px;
+    padding: 10px 30px;
 }
 
-.reply-input .reply-user {
-    margin-bottom: 5px;
+#save-edit {
+    background-color: #f93;
 }
 
-#reply-form {
-    margin: 0;
-}
-
-#reply-content {
-    border: 0;
-    font-family: "맑은 고딕", "고딕";
-    margin-bottom: 5px;
-    max-height: 500px;
-    outline: 0;
-    overflow: hidden;
-    overflow-wrap: break-word;
-    resize: none;
-    width: 100%;
-}
-
-.reply-manage {
-    display: flex;
-    justify-content: flex-end;
-}
-
-#reply-btn {
-    background-color: #fca;
-    border: 0;
-    border-radius: 7px;
-    color: #fafafa;
-    cursor: pointer;
-    padding: 5px 12px;
-}
-
-#reply-btn:hover {
-    background-color: #fdb;
-}
-
-/* 삭제 예정 */
-#image-select {
-    display: none;
+#cancel-edit {
+    background-color: #555;
 }
 
 /* footer */

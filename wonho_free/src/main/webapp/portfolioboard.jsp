@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="boxfolio.domain.*, java.util.List" %>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -25,10 +25,12 @@
     <link rel="short icon" type="image/x-icon" href="resources/magic-box.png">
 
     <!--CSS-->
-    <link rel="stylesheet" href="resources/board.css">
+    <link rel="stylesheet" href="resources/portfolioboard.css">
 
     <!--FontAwesome-->
     <script src="https://kit.fontawesome.com/5ac43742ba.js" crossorigin="anonymous"></script>
+
+    <script defer src="js/portfolioboard.js"></script>
 </head>
 <body>
     <div class="root-wrap">
@@ -81,73 +83,17 @@
         </header>
         <section>
             <div class="wrap">
-                <div class="notice-title-container">
-                    <h2 class="notice-title">자유게시판</h2>
+                <div id="pofol-container">
+
                 </div>
-                <%
-                	PostVO pvo = (PostVO)request.getAttribute("board");
-                	List<ReplyVO> replyList = (List<ReplyVO>)request.getAttribute("replyList");
-                %>
-                <div class="board-container">
-                    <div id="board-head">
-                        <div class="board-title">
-                            <h2><%=pvo.getPostTitle() %></h2>
-                        </div>
-                        <div class="board-user">
-                            <i class="far fa-user-circle profile-icon"></i>
-                            <div class="board-info">
-                                <p class="user-name">
-                                    <%=pvo.getUserName() %>
-                                </p>
-                                <p class="created-date">
-                                    <%=pvo.getPostCreated() %>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="board">
-                        <%=pvo.getPostContent() %>
-                    </div>
+                <div class="add-pofol-container">
+                    <button id="add-pofol-btn">
+                        <img src="resources/plus-sign.png" alt="add-pofol" class="add-pofol-icon" />
+                    </button>
                 </div>
-                <div class="reply-container">
-                    <div class="board-action">
-                        <a href="http://localhost:8080/wonho_free/EditServlet?cmd=inBoard&postId=<%=pvo.getPostId() %>&act=likes" role="button" class="board-like">
-                            <i class="far fa-star"></i>
-                            <p>추천 <%=pvo.getPostLikes() %></p>
-                        </a>
-                        <a href="http://localhost:8080/wonho_free/EditServlet?cmd=inBoard&postId=<%=pvo.getPostId() %>&act=scraps" role="button" class="board-scrap">
-                            <i class="far fa-bookmark"></i>
-                            <p>스크랩 <%=pvo.getPostScraps() %></p>
-                        </a>
-                        <a href="#" role="button" class="board-reply">
-                            <i class="far fa-comment-dots"></i>
-                            <p>댓글 <%=replyList.size() %></p>
-                        </a>
-                    </div>
-                    <div class="reply-area">
-                    	<%
-                        	for (ReplyVO rvo : replyList) {
-                        %>
-                        <div class="reply">
-                            <div class="reply-info">
-                                <span class="reply-user"><%=rvo.getUserName() %></span>
-                                <span class="reply-created"><%=rvo.getReplyCreated() %></span>
-                            </div>                            
-                            <div class="reply-content"><%=rvo.getReplyContent() %></div>
-                        </div>
-                        <%
-                        	}
-                        %>
-                        <div class="reply-input">
-                            <p class="reply-user"><%=session.getAttribute("userName") %></p>
-                            <form action="http://localhost:8080/wonho_free/EditServlet?cmd=uploadReply&postId=<%=pvo.getPostId() %>" id="reply-form" method="post">
-                                <textarea name="reply" id="reply-content" rows="1" placeholder="댓글을 입력하세요"></textarea>
-                                <div class="reply-manage">
-                                    <input type="submit" role="button" id="reply-btn" value="등록">
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+                <div class="access-container">
+                    <button id="save-edit">저장</button>
+                    <button id="cancel-edit">취소</button>
                 </div>
             </div>
         </section>
